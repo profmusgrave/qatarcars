@@ -63,17 +63,29 @@ origin          Origin Country Associated with Car (Germany, Italy, Japan, PR Ch
 make            Make (28 unique variables; names of brands of automobiles: Audi, BMW, Bentley, Bugatti, Cadillac, Chery, Ford, Geely, Honda, Hyundai, Jaguar, Jetour, Kia, Land Rover, Lexus, Lotus, MG, Maserati, Mazda, McLaren, Mercedes, Mitsubishi, Nissan, Porsche, Tesla, Toyota, Volkswagen, Volvo
 
 model           Model (89 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid)
+
 length          Length (m)
+
 width           Width (m)
+
 height          Height (m)
+
 seating         Number of Seats
+
 trunk           Trunk Capacity (L)
+
 economy         Fuel Economy (L/100km)
+
 horsepower      Horsepower (hp)
+
 price           Price (QAR)
+
 mass            Mass (kg)
+
 performance     Time 0-100km/h (s)
+
 type            Type (coupe, hatchback, SUV, sedan)
+
 enginetype      Engine Type (Electric, Hybrid, Petrol)
 
 
