@@ -1,4 +1,4 @@
-This readme file was generated on 2025-07-09 by Paul Musgrave.
+This readme file was initially generated on 2025-07-09 by Paul Musgrave. It was modified on 2025-10-03 to reflect expanded data collection.
 
 # GENERAL INFORMATION
 
@@ -10,7 +10,7 @@ Institution: Georgetown University Qatar
 Address: Education City, Doha, Qatar
 Email: rpm47@georgetown.edu
 
-* Date of data collection: January 2025
+* Date of data collection: January 2025, with additional data collected in July and August 2025.
 
 * Geographic location of data collection: Doha, State of Qatar
 
@@ -33,7 +33,7 @@ Musgrave, Paul. 2025. "Introducing the Qatar Cars Dataset." July 8. https://musg
 
 ## File List: 
 
-* this file (readme)
+* this file
 * qatarcars.dta
 * qatarcars.csv
 
@@ -55,37 +55,25 @@ The data was collected as part of a statistics course for International Politics
 # DATA-SPECIFIC INFORMATION FOR QATAR CARS DATASET
 
 * Number of variables: 15
-* Number of cases/rows: 89
+* Number of cases/rows: 99
 * Variable List: 
 
 origin          Origin Country Associated with Car (Germany, Italy, Japan, PR China, South Korea, Sweden, UK, USA)
 
-make            Make (28 unique variables; names of brands of automobiles: Audi, BMW, Bentley, Bugatti, Cadillac, Chery, Ford, Geely, Honda, Hyundai, Jaguar, Jetour, Kia, Land Rover, Lexus, Lotus, MG, Maserati, Mazda, McLaren, Mercedes, Mitsubishi, Nissan, Porsche, Tesla, Toyota, Volkswagen, Volvo
+make            Make (30 unique variables; names of brands of automobiles: Audi, BMW, BYD, Bentley, Bestune, Bugatti, Cadillac, Chery, Ford, Geely, Honda, Hyundai, Jaguar, Jetour, Kia, Land Rover, Lexus, Lotus, MG, Maserati, Mazda, McLaren, Mercedes, Mitsubishi, Nissan, Porsche, Tesla, Toyota, Volkswagen, Volvo
 
-model           Model (89 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid)
-
+model           Model (99 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid)
 length          Length (m)
-
 width           Width (m)
-
 height          Height (m)
-
 seating         Number of Seats
-
 trunk           Trunk Capacity (L)
-
 economy         Fuel Economy (L/100km)
-
 horsepower      Horsepower (hp)
-
 price           Price (QAR)
-
 mass            Mass (kg)
-
 performance     Time 0-100km/h (s)
-
 type            Type (coupe, hatchback, SUV, sedan)
-
 enginetype      Engine Type (Electric, Hybrid, Petrol)
 
 
