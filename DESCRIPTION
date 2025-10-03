@@ -1,0 +1,33 @@
+Package: qatarcars
+Type: Package
+Title: Qatar Cars Data
+Version: 0.1.0.9000
+Date: 2025-10-03
+Authors@R: c(
+    person(
+      given = "Paul", 
+      family = "Musgrave",
+      email = "rpm47@georgetown.edu",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0002-8984-4992")
+    ),
+    person(
+      given = "Andrew", 
+      family = "Heiss",
+      email = "andrew@andrewheiss.com",
+      role = c("aut"),
+      comment = c(ORCID = "0000-0002-3948-3914")
+    )
+  )
+Description: Fuel economy, size, performance, and price data for cars in Qatar in 2025. Mirrors many of the columns in mtcars, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States.
+License: CC BY 4.0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3.9000
+Depends:
+    R (>= 3.5)
+URL: https://profmusgrave.github.io/qatarcars/, https://github.com/profmusgrave/qatarcars
+BugReports: https://github.com/profmusgrave/qatarcars/issues
+Suggests: 
+    tibble

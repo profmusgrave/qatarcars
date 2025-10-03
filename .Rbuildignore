@@ -1,0 +1,15 @@
+^qatarcars\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^LICENSE\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^README\.qmd$
+^vignettes
+^\.github$
+^cran-comments\.md$
+^\.Rhistory$
+^\.nojekyll$
+^altdoc$
+^_quarto$
