@@ -30,4 +30,5 @@ Depends:
 URL: https://profmusgrave.github.io/qatarcars/, https://github.com/profmusgrave/qatarcars
 BugReports: https://github.com/profmusgrave/qatarcars/issues
 Suggests: 
+    altdoc,
     tibble
