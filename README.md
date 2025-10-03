@@ -5,9 +5,13 @@ This readme file was initially generated on 2025-07-09 by Paul Musgrave. It was 
 * Title of Dataset: Qatar Cars
 ## Author
 Name: Paul Musgrave
+
 ORCID: https://orcid.org/0000-0002-8984-4992
+
 Institution: Georgetown University Qatar
+
 Address: Education City, Doha, Qatar
+
 Email: rpm47@georgetown.edu
 
 * Date of data collection: January 2025, with additional data collected in July and August 2025.
