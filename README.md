@@ -62,23 +62,22 @@ The data was collected as part of a statistics course for International Politics
 * Number of cases/rows: 99
 * Variable List: 
 
-origin          Origin Country Associated with Car (Germany, Italy, Japan, PR China, South Korea, Sweden, UK, USA)
-
-make            Make (30 unique variables; names of brands of automobiles: Audi, BMW, BYD, Bentley, Bestune, Bugatti, Cadillac, Chery, Ford, Geely, Honda, Hyundai, Jaguar, Jetour, Kia, Land Rover, Lexus, Lotus, MG, Maserati, Mazda, McLaren, Mercedes, Mitsubishi, Nissan, Porsche, Tesla, Toyota, Volkswagen, Volvo
-
-model           Model (99 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid)
-length          Length (m)
-width           Width (m)
-height          Height (m)
-seating         Number of Seats
-trunk           Trunk Capacity (L)
-economy         Fuel Economy (L/100km)
-horsepower      Horsepower (hp)
-price           Price (QAR)
-mass            Mass (kg)
-performance     Time 0-100km/h (s)
-type            Type (coupe, hatchback, SUV, sedan)
-enginetype      Engine Type (Electric, Hybrid, Petrol)
-
+| Variable Name | Description |
+| ------------- | ----------- |
+| origin        | Origin Country Associated with Car (Germany, Italy, Japan, PR China, South Korea, Sweden, UK, USA) |
+| make          | Make (30 unique variables; names of brands of automobiles: Audi, BMW, BYD, Bentley, Bestune, Bugatti, Cadillac, Chery, Ford, Geely, Honda, Hyundai, Jaguar, Jetour, Kia, Land Rover, Lexus, Lotus, MG, Maserati, Mazda, McLaren, Mercedes, Mitsubishi, Nissan, Porsche, Tesla, Toyota, Volkswagen, Volvo) |
+| model         | Model (99 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid) |
+| length        | Length (m) |
+| width         | Width (m) |
+| height        | Height (m) |
+| seating       | Number of Seats |
+| trunk         | Trunk Capacity (L) |
+| economy       | Fuel Economy (L/100km) |
+| horsepower    | Horsepower (hp) |
+| price         | Price (QAR) |
+| mass          | Mass (kg) |
+| performance   | Time 0-100km/h (s) |
+| type          | Type (coupe, hatchback, SUV, sedan) |
+| enginetype    | Engine Type (Electric, Hybrid, Petrol) |
 
 * Missing data codes: Missing data codes: economy is "missing" for electric vehicles (denoted by .), as fuel economy in L/100km is not applicable to electric powertrains.
