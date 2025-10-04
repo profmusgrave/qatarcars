@@ -42,11 +42,14 @@ website:
       - text: Changelog
         file: $ALTDOC_CHANGELOG
       - text: Licence
-        file: $ALTDOC_LICENCE
+        file: $ALTDOC_LICENSE
       - text: Code of conduct
         file: $ALTDOC_CODE_OF_CONDUCT
       - text: Citation
         file: $ALTDOC_CITATION
+
+  page-footer: |
+    Data and content licensed under [{{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 format:
   html:
