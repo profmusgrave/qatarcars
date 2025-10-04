@@ -58,7 +58,6 @@ The Qatar Cars data is available in several different formats:
 
   ```r
   library(qatarcars)
-
   qatarcars
   ```
 
@@ -124,7 +123,7 @@ If you have [{tibble}](https://tibble.tidyverse.org/) installed (likely as part 
 
 ### Labels
 
-Most columns in `qatarcars` are labelled:
+Most columns in `qatarcars` are labeled:
 
 ```{r}
 #| label: show-attributes
