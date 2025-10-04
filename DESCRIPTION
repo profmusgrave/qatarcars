@@ -2,7 +2,7 @@ Package: qatarcars
 Type: Package
 Title: Qatar Cars Data
 Version: 1.0.0
-Date: 2025-10-03
+Date: 2025-10-04
 Authors@R: c(
     person(
       given = "Paul", 
