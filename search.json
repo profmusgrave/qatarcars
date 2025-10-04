@@ -4,7 +4,7 @@
     "href": "CITATION.html",
     "title": "Citation",
     "section": "",
-    "text": "Citation\nTo cite package ‘qatarcars’ in publications use:\n\nMusgrave P, Heiss A (2025). qatarcars: Qatar Cars Data. R package version 0.1.0.9000, https://profmusgrave.github.io/qatarcars/.",
+    "text": "Citation\nTo cite package ‘qatarcars’ in publications use:\n\nMusgrave P, Heiss A (2025). qatarcars: Qatar Cars Data. R package version 1.0.0, https://profmusgrave.github.io/qatarcars/.",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Citation"
@@ -13,9 +13,9 @@
   {
     "objectID": "NEWS.html",
     "href": "NEWS.html",
-    "title": "qatarcars (development version)",
+    "title": "qatarcars 1.0.0",
     "section": "",
-    "text": "qatarcars (development version)\n\nInitial CRAN submission.",
+    "text": "qatarcars 1.0.0\n\nInitial CRAN submission.",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "News"
@@ -92,7 +92,7 @@
     "href": "man/qatarcars.html",
     "title": "qatarcars",
     "section": "",
-    "text": "Includes prices and other specifications taken from YallaMotors Qatar between January to August 2025\n\n\n\nqatarcars\n\n\n\n\nA tibble with 99 rows and 15 variables:\n\n\norigin\n\n\na factor denoting car country of origin\n\n\nmake\n\n\na factor denoting car make\n\n\nmodel\n\n\na factor denoting car model\n\n\nlength\n\n\na number denoting car length (meters)\n\n\nwidth\n\n\na number denoting car width (meters)\n\n\nheight\n\n\na number denoting car height (meters)\n\n\nseating\n\n\na number denoting number of seats in car\n\n\ntrunk\n\n\na number denoting volume of trunk (liters)\n\n\neconomy\n\n\na number denoting car fuel economy (L/100km)\n\n\nhorsepower\n\n\na number denoting car horsepower\n\n\nprice\n\n\na number denoting car price (2025 Qatari riyals (QAR))\n\n\nmass\n\n\na number denoting car mass (kilograms)\n\n\nperformance\n\n\na number denoting car performance (Time 0-100 km/h (seconds))\n\n\ntype\n\n\na factor denoting car type\n\n\nenginetype\n\n\na factor denoting car engine type\n\n\n\n\n\nhttps://github.com/profmusgrave/qatarcars\nhttps://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset\nhttps://qatar.yallamotor.com/",
+    "text": "Includes prices and other specifications taken from YallaMotors Qatar between January to August 2025\n\n\n\nqatarcars\n\n\n\n\nA tibble with 99 rows and 15 variables:\n\n\norigin\n\n\na factor denoting car country of origin\n\n\nmake\n\n\na factor denoting car make\n\n\nmodel\n\n\na factor denoting car model\n\n\nlength\n\n\na number denoting car length (meters)\n\n\nwidth\n\n\na number denoting car width (meters)\n\n\nheight\n\n\na number denoting car height (meters)\n\n\nseating\n\n\na number denoting number of seats in car\n\n\ntrunk\n\n\na number denoting volume of trunk (liters)\n\n\neconomy\n\n\na number denoting car fuel economy (L/100km)\n\n\nhorsepower\n\n\na number denoting car horsepower\n\n\nprice\n\n\na number denoting car price (2025 Qatari riyals (QAR))\n\n\nmass\n\n\na number denoting car mass (kilograms)\n\n\nperformance\n\n\na number denoting car performance (Time 0-100 km/h (seconds))\n\n\ntype\n\n\na factor denoting car type\n\n\nenginetype\n\n\na factor denoting car engine type\n\n\n\n\n\nhttps://github.com/profmusgrave/qatarcars\nhttps://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset\nYalla Motors Qatar",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Reference",
@@ -104,7 +104,7 @@
     "href": "man/qatarcars.html#fuel-economy-size-performance-and-price-data-for-cars-in-qatar",
     "title": "qatarcars",
     "section": "",
-    "text": "Includes prices and other specifications taken from YallaMotors Qatar between January to August 2025\n\n\n\nqatarcars\n\n\n\n\nA tibble with 99 rows and 15 variables:\n\n\norigin\n\n\na factor denoting car country of origin\n\n\nmake\n\n\na factor denoting car make\n\n\nmodel\n\n\na factor denoting car model\n\n\nlength\n\n\na number denoting car length (meters)\n\n\nwidth\n\n\na number denoting car width (meters)\n\n\nheight\n\n\na number denoting car height (meters)\n\n\nseating\n\n\na number denoting number of seats in car\n\n\ntrunk\n\n\na number denoting volume of trunk (liters)\n\n\neconomy\n\n\na number denoting car fuel economy (L/100km)\n\n\nhorsepower\n\n\na number denoting car horsepower\n\n\nprice\n\n\na number denoting car price (2025 Qatari riyals (QAR))\n\n\nmass\n\n\na number denoting car mass (kilograms)\n\n\nperformance\n\n\na number denoting car performance (Time 0-100 km/h (seconds))\n\n\ntype\n\n\na factor denoting car type\n\n\nenginetype\n\n\na factor denoting car engine type\n\n\n\n\n\nhttps://github.com/profmusgrave/qatarcars\nhttps://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset\nhttps://qatar.yallamotor.com/",
+    "text": "Includes prices and other specifications taken from YallaMotors Qatar between January to August 2025\n\n\n\nqatarcars\n\n\n\n\nA tibble with 99 rows and 15 variables:\n\n\norigin\n\n\na factor denoting car country of origin\n\n\nmake\n\n\na factor denoting car make\n\n\nmodel\n\n\na factor denoting car model\n\n\nlength\n\n\na number denoting car length (meters)\n\n\nwidth\n\n\na number denoting car width (meters)\n\n\nheight\n\n\na number denoting car height (meters)\n\n\nseating\n\n\na number denoting number of seats in car\n\n\ntrunk\n\n\na number denoting volume of trunk (liters)\n\n\neconomy\n\n\na number denoting car fuel economy (L/100km)\n\n\nhorsepower\n\n\na number denoting car horsepower\n\n\nprice\n\n\na number denoting car price (2025 Qatari riyals (QAR))\n\n\nmass\n\n\na number denoting car mass (kilograms)\n\n\nperformance\n\n\na number denoting car performance (Time 0-100 km/h (seconds))\n\n\ntype\n\n\na factor denoting car type\n\n\nenginetype\n\n\na factor denoting car engine type\n\n\n\n\n\nhttps://github.com/profmusgrave/qatarcars\nhttps://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset\nYalla Motors Qatar",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Reference",
