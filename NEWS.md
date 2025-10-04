@@ -1,3 +1,5 @@
 # qatarcars (development version)
 
-* Initial CRAN submission.
+# qatarcars 1.0.0
+
+- Initial CRAN submission.

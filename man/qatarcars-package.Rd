@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Paul Musgrave \email{rpm47@georgetown.edu} (\href{https://orcid.org/0000-0002-8984-4992}{ORCID})
+\strong{Maintainer}: Paul Musgrave \email{rpm47@georgetown.edu} (\href{https://orcid.org/0000-0002-8984-4992}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{
