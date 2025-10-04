@@ -1,8 +1,6 @@
 project:
   type: website
   output-dir: ../docs/
-  resources:
-    - "man/figures/img/*"
 
 website:
   title: "$ALTDOC_PACKAGE_NAME"

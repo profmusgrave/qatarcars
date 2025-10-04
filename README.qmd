@@ -69,11 +69,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-# qatarcars <img src="man/figures/logo.png" align="right" height="138" alt="" />
+# qatarcars <img src="man/figures/qatarcars_hex.png" align="right" height="138" alt="" />
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars)](https://cran.r-project.org/package=qatarcars) 
-[![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml) 
+[![CC-BY-4.0 license](https://img.shields.io/badge/license-CC--BY--4.0-green)](LICENSE.md)
+
 <!-- badges: end -->
 
 
@@ -181,7 +183,7 @@ attributes(qatarcars$economy)
 
 These labels are visible in RStudio's Viewer panel:
 
-![](man/figures/img/rstudio-viewer-labels.png)
+![](man/figures/rstudio-viewer-labels.png)
 
 If you use {ggplot2} v4.0+, these variable labels will [automatically appear in plot labels](https://www.tidyverse.org/blog/2025/09/ggplot2-4-0-0/#labels):
 
