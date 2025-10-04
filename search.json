@@ -22,11 +22,22 @@
     ]
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "qatarcars \n",
+    "section": "",
+    "text": "Qatar Cars provides a more internationally-focused, modern cars-based demonstration dataset. It mirrors many of the columns in mtcars, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States. It includes almost exactly the same variables as the mtcars dataset:\n\n\norigin (the country associated with the car brand)\n\nmake (the brand of the car, such as Toyota or Land Rover)\n\nmodel (the specific type of car, such as Land Cruiser or Defender)\n\nlength, width, and height (all in meters)\n\ntrunk capacity (measured in liters)\nfuel economy (measured in liters per 100 km)\n\nperformance (time in seconds to accelerate from 0 to 100km/h)\n\nmass in kilograms\n\nprice in 2025 Qatari riyals\n\ntype (the type of the car, such as coupe, sedan, or SUV)\n\nenginetype (electric, hybrid, or petrol)\n\nThe original data was compiled by Paul Musgrave in January 2025 and is mostly sourced from YallaMotors Qatar. See Paul’s writeup of the background and purpose of the data.\n\nThe Qatar Cars data is available in several different formats:\n\n\nThis {qatarcars} R package. See below for complete details. Load like this:\nlibrary(qatarcars)\nqatarcars\n\nPlain text CSV file. Use with any software.\n\nStata .dta file. Load like this:\nuse \"qatarcars.dta\"\nlist in 1/6\n\n\nR .rds file. Load like this:\ndf &lt;- readRDS(\"qatarcars.rds\")\nhead(df)\n\n\nThe QatarCars Python package. Install with pip install qatarcars, then load like this:\nfrom qatarcars import get_qatar_cars\ndf = get_qatar_cars(\"pandas\")  # or \"polars\"\ndf.head()\n\n\nThe released version of {qatarcars} is available on CRAN:\ninstall.packages(\"qatarcars\")\nYou can also install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"profmusgrave/qatarcars\")\n\n\nSimilar to other data-only R packages like {gapminder} and {palmerpenguins}, load the data by running library(qatarcars):\n\nlibrary(qatarcars)\n\nqatarcars\n#&gt; # A tibble: 99 × 15\n#&gt;    origin  make     model   length width height seating trunk economy horsepower\n#&gt;    &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1 Germany BMW      3 Seri…   4.71  1.83   1.44       5   480    11.8        184\n#&gt;  2 Germany BMW      3 Seri…   4.71  1.83   1.44       5    59     7.6        386\n#&gt;  3 Germany BMW      X1        4.50  1.84   1.64       5   505     6.6        313\n#&gt;  4 Germany Audi     RS Q8     5.01  1.69   2.00       5   605    12.1        600\n#&gt;  5 Germany Audi     RS3       4.54  1.85   1.41       5   321     8.7        400\n#&gt;  6 Germany Audi     A3        4.46  1.96   1.42       5   425     6.5        180\n#&gt;  7 Germany Mercedes Maybach   5.47  1.92   1.51       4   500    13.3        612\n#&gt;  8 Germany Mercedes G-Wagon   4.61  1.98   1.97       5   480    13.1        585\n#&gt;  9 Germany Mercedes EQS       5.22  1.93   1.51       5   610    NA          333\n#&gt; 10 Germany Mercedes GLA       4.41  1.83   1.61       5   435     5.6        163\n#&gt; # ℹ 89 more rows\n#&gt; # ℹ 5 more variables: price &lt;dbl&gt;, mass &lt;dbl&gt;, performance &lt;dbl&gt;, type &lt;fct&gt;,\n#&gt; #   enginetype &lt;fct&gt;\n\n\n\n\n\n\n\nTip\n\n\n\nIf you have {tibble} installed (likely as part of the tidyverse), qatarcars will load as a tibble with nicer printing output; if you do not have {tibble} installed, the data will load as a standard data frame.\n\n\nSee ?qatarcars for data documentation within R.\n\nMost columns in qatarcars are labeled:\n\nattributes(qatarcars$economy)\n#&gt; $label\n#&gt; [1] \"Fuel Economy (L/100km)\"\n\nThese labels are visible in RStudio’s Viewer panel:\n\nIf you use {ggplot2} v4.0+, these variable labels will automatically appear in plot labels:\n\nlibrary(ggplot2)\n\nggplot(qatarcars, aes(x = economy)) + \n  geom_histogram(binwidth = 1, fill = \"#8A1538\", color = \"white\")\n\n\n\n\n\n\n\n\nFuel efficiency gets worse as cars get heavier:\n\nggplot(qatarcars, aes(x = mass, y = economy)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  scale_x_continuous(labels = scales::label_comma())\n\n\n\n\n\n\n\nSome of these cars are really expensive, so logging the price is helpful:\n\nggplot(qatarcars, aes(x = performance, y = price)) +\n  geom_smooth() +\n  geom_point(aes(color = type)) +\n  scale_y_log10(labels = scales::label_currency(prefix = \"QR \"))",
+    "crumbs": [
+      "{{< fa file-lines >}} Article",
+      "Home"
+    ]
+  },
+  {
     "objectID": "index.html#overview",
     "href": "index.html#overview",
-    "title": "qatarcars",
-    "section": "Overview",
-    "text": "Overview\nQatar Cars provides a more internationally-focused, modern cars-based demonstration dataset. It mirrors many of the columns in mtcars, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States. It includes almost exactly the same variables as the mtcars dataset:\n\n\norigin (the country associated with the car brand)\n\nmake (the brand of the car, such as Toyota or Land Rover)\n\nmodel (the specific type of car, such as Land Cruiser or Defender)\n\nlength, width, and height (all in meters)\n\ntrunk capacity (measured in liters)\nfuel economy (measured in liters per 100 km)\n\nperformance (time in seconds to accelerate from 0 to 100km/h)\n\nmass in kilograms\n\nprice in 2025 Qatari riyals\n\ntype (the type of the car, such as coupe, sedan, or SUV)\n\nenginetype (electric, hybrid, or petrol)\n\nThe original data was compiled by Paul Musgrave in January 2025 and is mostly sourced from YallaMotors Qatar. See Paul’s writeup of the background and purpose of the data.",
+    "title": "qatarcars \n",
+    "section": "",
+    "text": "Qatar Cars provides a more internationally-focused, modern cars-based demonstration dataset. It mirrors many of the columns in mtcars, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States. It includes almost exactly the same variables as the mtcars dataset:\n\n\norigin (the country associated with the car brand)\n\nmake (the brand of the car, such as Toyota or Land Rover)\n\nmodel (the specific type of car, such as Land Cruiser or Defender)\n\nlength, width, and height (all in meters)\n\ntrunk capacity (measured in liters)\nfuel economy (measured in liters per 100 km)\n\nperformance (time in seconds to accelerate from 0 to 100km/h)\n\nmass in kilograms\n\nprice in 2025 Qatari riyals\n\ntype (the type of the car, such as coupe, sedan, or SUV)\n\nenginetype (electric, hybrid, or petrol)\n\nThe original data was compiled by Paul Musgrave in January 2025 and is mostly sourced from YallaMotors Qatar. See Paul’s writeup of the background and purpose of the data.",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Home"
@@ -35,9 +46,9 @@
   {
     "objectID": "index.html#formats",
     "href": "index.html#formats",
-    "title": "qatarcars",
-    "section": "Formats",
-    "text": "Formats\nThe Qatar Cars data is available in several different formats:\n\n\nThis {qatarcars} R package. See below for complete details. Load like this:\nlibrary(qatarcars)\nqatarcars\n\nPlain text CSV file. Use with any software.\n\nStata .dta file. Load like this:\nuse \"qatarcars.dta\"\nlist in 1/6\n\n\nR .rds file. Load like this:\ndf &lt;- readRDS(\"qatarcars.rds\")\nhead(df)\n\n\nThe QatarCars Python package. Install with pip install qatarcars, then load like this:\nfrom qatarcars import get_qatar_cars\ndf = get_qatar_cars(\"pandas\")  # or \"polars\"\ndf.head()",
+    "title": "qatarcars \n",
+    "section": "",
+    "text": "The Qatar Cars data is available in several different formats:\n\n\nThis {qatarcars} R package. See below for complete details. Load like this:\nlibrary(qatarcars)\nqatarcars\n\nPlain text CSV file. Use with any software.\n\nStata .dta file. Load like this:\nuse \"qatarcars.dta\"\nlist in 1/6\n\n\nR .rds file. Load like this:\ndf &lt;- readRDS(\"qatarcars.rds\")\nhead(df)\n\n\nThe QatarCars Python package. Install with pip install qatarcars, then load like this:\nfrom qatarcars import get_qatar_cars\ndf = get_qatar_cars(\"pandas\")  # or \"polars\"\ndf.head()",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Home"
@@ -46,9 +57,9 @@
   {
     "objectID": "index.html#installation",
     "href": "index.html#installation",
-    "title": "qatarcars",
-    "section": "Installation",
-    "text": "Installation\nThe released version of {qatarcars} is available on CRAN:\ninstall.packages(\"qatarcars\")\nYou can also install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"profmusgrave/qatarcars\")",
+    "title": "qatarcars \n",
+    "section": "",
+    "text": "The released version of {qatarcars} is available on CRAN:\ninstall.packages(\"qatarcars\")\nYou can also install the development version from GitHub:\n# install.packages(\"remotes\")\nremotes::install_github(\"profmusgrave/qatarcars\")",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Home"
@@ -57,9 +68,9 @@
   {
     "objectID": "index.html#usage",
     "href": "index.html#usage",
-    "title": "qatarcars",
-    "section": "Usage",
-    "text": "Usage\nLoad data\nSimilar to other data-only R packages like {gapminder} and {palmerpenguins}, load the data by running library(qatarcars):\n\nlibrary(qatarcars)\n\nqatarcars\n#&gt; # A tibble: 99 × 15\n#&gt;    origin  make     model   length width height seating trunk economy horsepower\n#&gt;    &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1 Germany BMW      3 Seri…   4.71  1.83   1.44       5   480    11.8        184\n#&gt;  2 Germany BMW      3 Seri…   4.71  1.83   1.44       5    59     7.6        386\n#&gt;  3 Germany BMW      X1        4.50  1.84   1.64       5   505     6.6        313\n#&gt;  4 Germany Audi     RS Q8     5.01  1.69   2.00       5   605    12.1        600\n#&gt;  5 Germany Audi     RS3       4.54  1.85   1.41       5   321     8.7        400\n#&gt;  6 Germany Audi     A3        4.46  1.96   1.42       5   425     6.5        180\n#&gt;  7 Germany Mercedes Maybach   5.47  1.92   1.51       4   500    13.3        612\n#&gt;  8 Germany Mercedes G-Wagon   4.61  1.98   1.97       5   480    13.1        585\n#&gt;  9 Germany Mercedes EQS       5.22  1.93   1.51       5   610    NA          333\n#&gt; 10 Germany Mercedes GLA       4.41  1.83   1.61       5   435     5.6        163\n#&gt; # ℹ 89 more rows\n#&gt; # ℹ 5 more variables: price &lt;dbl&gt;, mass &lt;dbl&gt;, performance &lt;dbl&gt;, type &lt;fct&gt;,\n#&gt; #   enginetype &lt;fct&gt;\n\n\n\n\n\n\n\nTip\n\n\n\nIf you have {tibble} installed (likely as part of the tidyverse), qatarcars will load as a tibble with nicer printing output; if you do not have {tibble} installed, the data will load as a standard data frame.\n\n\nSee ?qatarcars for data documentation within R.\nLabels\nMost columns in qatarcars are labeled:\n\nattributes(qatarcars$economy)\n#&gt; $label\n#&gt; [1] \"Fuel Economy (L/100km)\"\n\nThese labels are visible in RStudio’s Viewer panel:\n\nIf you use {ggplot2} v4.0+, these variable labels will automatically appear in plot labels:\n\nlibrary(ggplot2)\n\nggplot(qatarcars, aes(x = economy)) + \n  geom_histogram(binwidth = 1, fill = \"#8A1538\", color = \"white\")",
+    "title": "qatarcars \n",
+    "section": "",
+    "text": "Similar to other data-only R packages like {gapminder} and {palmerpenguins}, load the data by running library(qatarcars):\n\nlibrary(qatarcars)\n\nqatarcars\n#&gt; # A tibble: 99 × 15\n#&gt;    origin  make     model   length width height seating trunk economy horsepower\n#&gt;    &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1 Germany BMW      3 Seri…   4.71  1.83   1.44       5   480    11.8        184\n#&gt;  2 Germany BMW      3 Seri…   4.71  1.83   1.44       5    59     7.6        386\n#&gt;  3 Germany BMW      X1        4.50  1.84   1.64       5   505     6.6        313\n#&gt;  4 Germany Audi     RS Q8     5.01  1.69   2.00       5   605    12.1        600\n#&gt;  5 Germany Audi     RS3       4.54  1.85   1.41       5   321     8.7        400\n#&gt;  6 Germany Audi     A3        4.46  1.96   1.42       5   425     6.5        180\n#&gt;  7 Germany Mercedes Maybach   5.47  1.92   1.51       4   500    13.3        612\n#&gt;  8 Germany Mercedes G-Wagon   4.61  1.98   1.97       5   480    13.1        585\n#&gt;  9 Germany Mercedes EQS       5.22  1.93   1.51       5   610    NA          333\n#&gt; 10 Germany Mercedes GLA       4.41  1.83   1.61       5   435     5.6        163\n#&gt; # ℹ 89 more rows\n#&gt; # ℹ 5 more variables: price &lt;dbl&gt;, mass &lt;dbl&gt;, performance &lt;dbl&gt;, type &lt;fct&gt;,\n#&gt; #   enginetype &lt;fct&gt;\n\n\n\n\n\n\n\nTip\n\n\n\nIf you have {tibble} installed (likely as part of the tidyverse), qatarcars will load as a tibble with nicer printing output; if you do not have {tibble} installed, the data will load as a standard data frame.\n\n\nSee ?qatarcars for data documentation within R.\n\nMost columns in qatarcars are labeled:\n\nattributes(qatarcars$economy)\n#&gt; $label\n#&gt; [1] \"Fuel Economy (L/100km)\"\n\nThese labels are visible in RStudio’s Viewer panel:\n\nIf you use {ggplot2} v4.0+, these variable labels will automatically appear in plot labels:\n\nlibrary(ggplot2)\n\nggplot(qatarcars, aes(x = economy)) + \n  geom_histogram(binwidth = 1, fill = \"#8A1538\", color = \"white\")",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Home"
@@ -68,9 +79,9 @@
   {
     "objectID": "index.html#examples",
     "href": "index.html#examples",
-    "title": "qatarcars",
-    "section": "Examples",
-    "text": "Examples\nFuel efficiency gets worse as cars get heavier:\n\nggplot(qatarcars, aes(x = mass, y = economy)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  scale_x_continuous(labels = scales::label_comma())\n\n\n\n\n\n\n\nSome of these cars are really expensive, so logging the price is helpful:\n\nggplot(qatarcars, aes(x = performance, y = price)) +\n  geom_smooth() +\n  geom_point(aes(color = type)) +\n  scale_y_log10(labels = scales::label_currency(prefix = \"QR \"))",
+    "title": "qatarcars \n",
+    "section": "",
+    "text": "Fuel efficiency gets worse as cars get heavier:\n\nggplot(qatarcars, aes(x = mass, y = economy)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  scale_x_continuous(labels = scales::label_comma())\n\n\n\n\n\n\n\nSome of these cars are really expensive, so logging the price is helpful:\n\nggplot(qatarcars, aes(x = performance, y = price)) +\n  geom_smooth() +\n  geom_point(aes(color = type)) +\n  scale_y_log10(labels = scales::label_currency(prefix = \"QR \"))",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Home"
