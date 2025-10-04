@@ -8,7 +8,11 @@ A few important notes about building, maintaining, and deploying this package:
 
 ### Documentation
 
-- `README.md` is created with `README.qmd`. After making any changes to `README.qmd`, make sure you run `quarto render README.qmd` to generate a new `README.md`
+- `README.md` is created with `README.qmd`. After making any changes to `README.qmd`, make sure you run this to generate a new `README.md`:
+
+  ```bash
+  quarto render README.qmd --to gfm
+  ```
 
 - The package documentation website is built with [{altdoc}](https://altdoc.etiennebacher.com/) and Quarto. I created the skeleton with:
 
