@@ -38,7 +38,6 @@ The Qatar Cars data is available in several different formats:
 
   ``` r
   library(qatarcars)
-
   qatarcars
   ```
 
@@ -115,7 +114,7 @@ qatarcars
 
 ### Labels
 
-Most columns in `qatarcars` are labelled:
+Most columns in `qatarcars` are labeled:
 
 ``` r
 attributes(qatarcars$economy)
