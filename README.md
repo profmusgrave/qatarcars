@@ -1,99 +1,137 @@
 
 
-Hello World!
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
-------------------------------------------------------------------------
+<img src="man/figures/qatarcars_hex.png" align="right" width="138" alt="qatarcars logo" />
 
-This readme file was generated on 2025-07-09 by Paul Musgrave. It was
-modified on 2025-10-03.
+# qatarcars
 
-# GENERAL INFORMATION
+<!-- badges: start -->
 
--   Title of Dataset: Qatar Cars \## Author Name: Paul Musgrave ORCID:
-    https://orcid.org/0000-0002-8984-4992 Institution: Georgetown
-    University Qatar Address: Education City, Doha, Qatar Email:
-    rpm47@georgetown.edu
+[![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars.png)](https://cran.r-project.org/package=qatarcars)
+<!-- badges: end -->
 
--   Date of data collection: January 2025, with additional data
-    collected in July and August 2025.
+## Overview
 
--   Geographic location of data collection: Doha, State of Qatar
+{qatarcars} provides a more internationally-focused, modern cars-based demonstration dataset. It mirrors many of the columns in `mtcars`, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States. It includes almost exactly the same variables as the `mtcars` dataset:
 
--   Information about funding sources that supported the collection of
-    the data: No funding
+- `origin` (the country associated with the car brand)
+- `make` (the brand of the car, such as Toyota or Land Rover)
+- `model` (the specific type of car, such as Land Cruiser or Defender)
+- `length`, `width`, and `height` (all in meters)
+- `trunk` capacity (measured in liters)
+- fuel `economy` (measured in liters per 100 km)
+- `performance` (time in seconds to accelerate from 0 to 100km/h)
+- `mass` in kilograms
+- `price` in 2025 Qatari riyals
+- `type` (the type of the car, such as coupe, sedan, or SUV)
+- `enginetype` (electric, hybrid, or petrol)
 
-# SHARING/ACCESS INFORMATION
+The original data was compiled by [Paul Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly sourced from [YallaMotors Qatar](https://qatar.yallamotor.com/). See [Paul’s writeup of the background and purpose of the data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset); access his [original Stata data here](https://github.com/profmusgrave/qatarcars).
 
--   Licenses/restrictions placed on the data: Mozilla Public License
-    Version 2.0
+## Formats
 
--   Was data derived from another source?
+The Qatar Cars data is available in several different formats:
 
-    -   If yes, list source(s): YallaMotor Qatar’s listing of vehicles
-        for sale, along with a variety of other Internet sources to
-        piece together “missing” data.
+- This R package
+- Plain text CSV
+- Stata .dta
+- R .rds
+- Python package
 
--   Recommended citation for this dataset:
+## Installation
 
-Musgrave, Paul. 2025. “Introducing the Qatar Cars Dataset.” July 8.
-https://musgrave.substack.com/p/introducing-the-qatar-cars-dataset
+The released version of {qatarcars} is available on [CRAN](https://CRAN.R-project.org):
 
-# DATA & FILE OVERVIEW
+``` r
+install.packages("qatarcars")
+```
 
-## File List:
+You can also install the development version from [GitHub](https://github.com/):
 
--   this file
+``` r
+# install.packages("remotes")
+remotes::install_github("profmusgrave/qatarcars")
+```
 
--   qatarcars.dta
+## Usage
 
--   qatarcars.csv
+### Load data
 
--   Relationship between files, if important: Identical data, different
-    formats.
+Similar to other data-only R packages like [{gapminder}](https://jennybc.github.io/gapminder/) and [{palmerpenguins}](https://allisonhorst.github.io/palmerpenguins/), load the data by running `library(qatarcars)`:
 
--   Additional related data collected that was not included in the
-    current data package: NA
+``` r
+library(qatarcars)
 
--   Are there multiple versions of the dataset? NA
+qatarcars
+#> # A tibble: 99 × 15
+#>    origin  make     model   length width height seating trunk economy horsepower
+#>    <fct>   <fct>    <fct>    <dbl> <dbl>  <dbl>   <dbl> <dbl>   <dbl>      <dbl>
+#>  1 Germany BMW      3 Seri…   4.71  1.83   1.44       5   480    11.8        184
+#>  2 Germany BMW      3 Seri…   4.71  1.83   1.44       5    59     7.6        386
+#>  3 Germany BMW      X1        4.50  1.84   1.64       5   505     6.6        313
+#>  4 Germany Audi     RS Q8     5.01  1.69   2.00       5   605    12.1        600
+#>  5 Germany Audi     RS3       4.54  1.85   1.41       5   321     8.7        400
+#>  6 Germany Audi     A3        4.46  1.96   1.42       5   425     6.5        180
+#>  7 Germany Mercedes Maybach   5.47  1.92   1.51       4   500    13.3        612
+#>  8 Germany Mercedes G-Wagon   4.61  1.98   1.97       5   480    13.1        585
+#>  9 Germany Mercedes EQS       5.22  1.93   1.51       5   610    NA          333
+#> 10 Germany Mercedes GLA       4.41  1.83   1.61       5   435     5.6        163
+#> # ℹ 89 more rows
+#> # ℹ 5 more variables: price <dbl>, mass <dbl>, performance <dbl>, type <fct>,
+#> #   enginetype <fct>
+```
 
-    -   If yes, name of file(s) that was updated: NA
-    -   Why was the file updated? NA
-    -   When was the file updated? NA
+> [!TIP]
+>
+> If you have [{tibble}](https://tibble.tidyverse.org/) installed (likely as part of [the tidyverse](https://www.tidyverse.org/)), `qatarcars` will load as a tibble with nicer printing output; if you do not have {tibble} installed, the data will load as a standard data frame.
 
-# METHODOLOGICAL INFORMATION
+### Labels
 
-## Description of methods used for collection/generation of data:
+Most columns in `qatarcars` are labelled:
 
-The data was collected as part of a statistics course for International
-Politics majors at Georgetown University. Data was gathered from online
-automobile Web sites and collected via Google Forms and spreadsheets.
-Students were assigned automobile manufacturers and told to collect one
-to three makes for each manufacturer. In addition to collecting much of
-the data, Musgrave edited the data and ensured consistency in
-formatting.
+``` r
+attributes(qatarcars$economy)
+#> $label
+#> [1] "Fuel Economy (L/100km)"
+```
 
-# DATA-SPECIFIC INFORMATION FOR QATAR CARS DATASET
+These labels are visible in RStudio’s Viewer panel:
 
--   Number of variables: 15
--   Number of cases/rows: 99
--   Variable List:
+![](man/figures/rstudio-viewer-labels.png)
 
-origin Origin Country Associated with Car (Germany, Italy, Japan, PR
-China, South Korea, Sweden, UK, USA)
+If you use {ggplot2} v4.0+, these variable labels will [automatically appear in plot labels](https://www.tidyverse.org/blog/2025/09/ggplot2-4-0-0/#labels):
 
-make Make (30 unique variables; names of brands of automobiles: Audi,
-BMW, BYD, Bentley, Bestune, Bugatti, Cadillac, Chery, Ford, Geely,
-Honda, Hyundai, Jaguar, Jetour, Kia, Land Rover, Lexus, Lotus, MG,
-Maserati, Mazda, McLaren, Mercedes, Mitsubishi, Nissan, Porsche, Tesla,
-Toyota, Volkswagen, Volvo
+``` r
+library(ggplot2)
 
-model Model (99 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid)
-length Length (m) width Width (m) height Height (m) seating Number of
-Seats trunk Trunk Capacity (L) economy Fuel Economy (L/100km) horsepower
-Horsepower (hp) price Price (QAR) mass Mass (kg) performance Time
-0-100km/h (s) type Type (coupe, hatchback, SUV, sedan) enginetype Engine
-Type (Electric, Hybrid, Petrol)
+ggplot(qatarcars, aes(x = economy)) + 
+  geom_histogram(binwidth = 1, fill = "#8A1538", color = "white")
+```
 
--   Missing data codes: Missing data codes: economy is “missing” for
-    electric vehicles (denoted by .), as fuel economy in L/100km is not
-    applicable to electric powertrains.
+<img src="man/figures/README-plot-economy-histogram-1.png" style="width:70.0%" data-fig-align="center" />
+
+## Examples
+
+Fuel efficiency gets worse as cars get heavier:
+
+``` r
+ggplot(qatarcars, aes(x = mass, y = economy)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_x_continuous(labels = scales::label_comma())
+```
+
+<img src="man/figures/README-plot-mass-economy-1.png" style="width:70.0%" data-fig-align="center" />
+
+Some of these cars are really expensive, so logging the price is helpful:
+
+``` r
+ggplot(qatarcars, aes(x = performance, y = price)) +
+  geom_smooth() +
+  geom_point(aes(color = type)) +
+  scale_y_log10(labels = scales::label_currency(prefix = "QR "))
+```
+
+<img src="man/figures/README-plot-performance-price-1.png" style="width:70.0%" data-fig-align="center" />
