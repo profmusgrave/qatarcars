@@ -4,6 +4,7 @@ project:
 
 website:
   title: "$ALTDOC_PACKAGE_NAME"
+  description: "Qatar Cars is a more internationally-focused, modern cars-based demonstration dataset for R, Stata, Python, and everything else."
   favicon: "assets/favicon.png"
 
   navbar:
