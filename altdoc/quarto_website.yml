@@ -8,6 +8,7 @@ website:
   navbar:
     search: true
     background: "#8A1538"
+    favicon: "assets/favicon.png"
     left:
       - text: "{{< fa file-lines >}} Article"
         href: "#"
