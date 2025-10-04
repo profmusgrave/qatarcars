@@ -31,6 +31,7 @@ URL: https://profmusgrave.github.io/qatarcars/, https://github.com/profmusgrave/
 BugReports: https://github.com/profmusgrave/qatarcars/issues
 Suggests: 
     altdoc,
+    ggplot2,
     scales,
     testthat (>= 3.0.0),
     tibble
