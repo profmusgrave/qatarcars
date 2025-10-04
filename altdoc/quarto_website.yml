@@ -3,8 +3,6 @@ project:
   output-dir: ../docs/
   resources:
     - "man/figures/img/*"
-    - "../man/figures/*"
-    - "figures/img*"
 
 website:
   title: "$ALTDOC_PACKAGE_NAME"
