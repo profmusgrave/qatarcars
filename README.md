@@ -35,8 +35,8 @@ variables as the `mtcars` dataset:
 
 The original data was compiled by [Paul
 Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly
-sourced from [YallaMotors Qatar](https://qatar.yallamotor.com/). See
-[Paul’s writeup of the background and purpose of the
+sourced from YallaMotors Qatar. See [Paul’s writeup of the background
+and purpose of the
 data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset).
 
 ## Formats

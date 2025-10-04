@@ -23,5 +23,5 @@
 #' }
 #' @source \url{https://github.com/profmusgrave/qatarcars}
 #' @source \url{https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset}
-#' @source \url{https://qatar.yallamotor.com/}
+#' @source Yalla Motors Qatar
 "qatarcars"

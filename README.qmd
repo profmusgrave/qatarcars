@@ -95,7 +95,7 @@ Qatar Cars provides a more internationally-focused, modern cars-based demonstrat
 - `type` (the type of the car, such as coupe, sedan, or SUV)
 - `enginetype` (electric, hybrid, or petrol)
 
-The original data was compiled by [Paul Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly sourced from [YallaMotors Qatar](https://qatar.yallamotor.com/). See [Paul's writeup of the background and purpose of the data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset).
+The original data was compiled by [Paul Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly sourced from YallaMotors Qatar. See [Paul's writeup of the background and purpose of the data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset).
 
 
 ## Formats

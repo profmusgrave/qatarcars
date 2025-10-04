@@ -29,7 +29,7 @@ A tibble with 99 rows and 15 variables:
 
 \url{https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset}
 
-\url{https://qatar.yallamotor.com/}
+Yalla Motors Qatar
 }
 \usage{
 qatarcars
