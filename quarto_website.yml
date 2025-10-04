@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: ../docs/
+  resources:
+    - "man/figures/img/*"
 
 website:
   title: "$ALTDOC_PACKAGE_NAME"
@@ -34,12 +36,12 @@ website:
         file: index.qmd
       - section: $ALTDOC_VIGNETTE_BLOCK
       - section: $ALTDOC_MAN_BLOCK
+      - text: Research data README
+        href: man/README_research-data.qmd
       - text: News
         file: $ALTDOC_NEWS
       - text: Changelog
         file: $ALTDOC_CHANGELOG
-      - text: License
-        file: $ALTDOC_LICENSE
       - text: Licence
         file: $ALTDOC_LICENCE
       - text: Code of conduct
