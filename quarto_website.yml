@@ -12,7 +12,7 @@ website:
   navbar:
     pinned: true
     search: true
-    background: "#8B0E36"
+    background: "#8A1538"
     right:
       - icon: github
         href: $ALTDOC_PACKAGE_URL_GITHUB

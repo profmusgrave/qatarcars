@@ -10,36 +10,6 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "GENERAL INFORMATION",
-    "section": "",
-    "text": "Hello World!\nThis readme file was generated on 2025-07-09 by Paul Musgrave. It was modified on 2025-10-03.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#file-list",
-    "href": "index.html#file-list",
-    "title": "GENERAL INFORMATION",
-    "section": "File List:",
-    "text": "File List:\n\nthis file\nqatarcars.dta\nqatarcars.csv\nRelationship between files, if important: Identical data, different formats.\nAdditional related data collected that was not included in the current data package: NA\nAre there multiple versions of the dataset? NA\n\nIf yes, name of file(s) that was updated: NA\nWhy was the file updated? NA\nWhen was the file updated? NA",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#description-of-methods-used-for-collectiongeneration-of-data",
-    "href": "index.html#description-of-methods-used-for-collectiongeneration-of-data",
-    "title": "GENERAL INFORMATION",
-    "section": "Description of methods used for collection/generation of data:",
-    "text": "Description of methods used for collection/generation of data:\nThe data was collected as part of a statistics course for International Politics majors at Georgetown University. Data was gathered from online automobile Web sites and collected via Google Forms and spreadsheets. Students were assigned automobile manufacturers and told to collect one to three makes for each manufacturer. In addition to collecting much of the data, Musgrave edited the data and ensured consistency in formatting.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
     "objectID": "LICENSE.html",
     "href": "LICENSE.html",
     "title": "qatarcars",
