@@ -13,3 +13,4 @@
 ^\.nojekyll$
 ^altdoc$
 ^_quarto$
+^CRAN-SUBMISSION$
