@@ -27,14 +27,14 @@ knitr::opts_chunk$set(
 # qatarcars
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml) 
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars)](https://cran.r-project.org/package=qatarcars)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars)](https://cran.r-project.org/package=qatarcars) 
+[![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 
 ## Overview
 
-{qatarcars} provides a more internationally-focused, modern cars-based demonstration dataset. It mirrors many of the columns in `mtcars`, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States. It includes almost exactly the same variables as the `mtcars` dataset:
+Qatar Cars provides a more internationally-focused, modern cars-based demonstration dataset. It mirrors many of the columns in `mtcars`, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States. It includes almost exactly the same variables as the `mtcars` dataset:
 
 - `origin` (the country associated with the car brand)
 - `make` (the brand of the car, such as Toyota or Land Rover)
@@ -48,17 +48,43 @@ knitr::opts_chunk$set(
 - `type` (the type of the car, such as coupe, sedan, or SUV)
 - `enginetype` (electric, hybrid, or petrol)
 
-The original data was compiled by [Paul Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly sourced from [YallaMotors Qatar](https://qatar.yallamotor.com/). See [Paul's writeup of the background and purpose of the data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset); access his [original Stata data here](https://github.com/profmusgrave/qatarcars).
+The original data was compiled by [Paul Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly sourced from [YallaMotors Qatar](https://qatar.yallamotor.com/). See [Paul's writeup of the background and purpose of the data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset).
 
 ## Formats
 
 The Qatar Cars data is available in several different formats:
 
-- This R package
-- Plain text CSV
-- Stata .dta
-- R .rds
-- Python package
+- **This {qatarcars} R package**. See below for complete details. Load like this:
+
+  ```r
+  library(qatarcars)
+
+  qatarcars
+  ```
+
+- [**Plain text CSV file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.csv). Use with any software.
+
+- [**Stata .dta file**](https://github.com/profmusgrave/qatarcars/raw/refs/heads/main/inst/extdata/qatarcars.dta). Load like this:
+
+  ```stata
+  use "qatarcars.dta"
+  list in 1/6
+  ```
+
+- [**R .rds file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.rds). Load like this:
+
+  ```r
+  df <- readRDS("qatarcars.rds")
+  head(df)
+  ```
+
+- [**The QatarCars Python package**](https://github.com/prlitics/qatarcars). Install with `pip install qatarcars`, then load like this:
+
+  ```python
+  from qatarcars import get_qatar_cars
+  df = get_qatar_cars("pandas")
+  df.head()
+  ```
 
 
 ## Installation
