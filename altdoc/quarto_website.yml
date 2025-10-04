@@ -5,14 +5,23 @@ project:
 website:
   title: "$ALTDOC_PACKAGE_NAME"
 
-  code-links: true
-
-  bread-crumbs: false
-
   navbar:
-    pinned: true
     search: true
     background: "#8A1538"
+    left:
+      - text: "{{< fa file-lines >}} Article"
+        href: "#"
+      - text: "{{< fa download >}} Other formats"
+        menu:
+        - text: "{{< fa file-csv >}} CSV"
+          href: "https://raw.githubusercontent.com/profmusgrave/qatarcars/refs/heads/main/inst/extdata/qatarcars.csv"
+        - text: "{{< fa table >}} Stata .dta"
+          href: "https://github.com/profmusgrave/qatarcars/raw/refs/heads/main/inst/extdata/qatarcars.dta"
+        - text: "{{< fa brands r-project >}} R .rds"
+          href: "https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.rds"
+        - text: "{{< fa brands python >}} Python package"
+          href: "https://github.com/prlitics/qatarcars"
+
     right:
       - icon: github
         href: $ALTDOC_PACKAGE_URL_GITHUB
@@ -40,5 +49,8 @@ website:
 
 format:
   html:
+    toc: true
     theme: zephyr
-    number-sections: false
+    code-link: true
+    highlight-style: atom-one
+    linkcolor: "#8A1538"

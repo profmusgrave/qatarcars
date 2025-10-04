@@ -1,10 +1,53 @@
----
-format:
-  gfm:
-    wrap: preserve
----
-
 <!-- README.md is generated from README.qmd. Please edit that file -->
+
+::: {.content-hidden}
+
+**EXTRA HIDDEN INSTRUCTIONS**
+
+A few important notes about building, maintaining, and deploying this package:
+
+### Documentation
+
+- `README.md` is created with `README.qmd`. After making any changes to `README.qmd`, make sure you run `quarto render README.qmd` to generate a new `README.md`
+
+- The package documentation website is built with [{altdoc}](https://altdoc.etiennebacher.com/) and Quarto. I created the skeleton with:
+
+  ```r
+  altdoc::setup_docs(tool = "quarto_website")
+  ```
+
+  The Quarto configuration files live in `altdoc/`.
+
+- The documentation website can be built locally with:
+
+  ```r
+  altdoc::render_docs()
+  altdoc::preview_docs()
+  ```
+
+  …and it'll appear in `docs/`. *However*, this folder is not tracked by version control. A GitHub action (`.github/workflows/altdoc.yaml`) builds the website with a GitHub runner and deploys it to the `gh-pages` branch, so there's no need to push any website content from here to any remote server.
+
+### Data
+
+The canonical source of data is the Stata file at `inst/extdata/qatarcars.dta`. If this file is ever updated, two things need to happen:
+
+1. Run the script at `data-raw/qatarcars.R` to convert the `.dta` file to the package's internal file type, CSV, and RDS.
+
+2. Run `testthat::snapshot_accept()` to update the test snapshot (`tests/testthat/test-data.R` checks the data against a saved snapshot)
+
+Once that's all done, document, build, and check like normal (see below).
+
+### Build
+
+The normal workflow for updating the package is:
+
+```r
+devtools::document()
+devtools::check()
+devtools::load_all()
+```
+
+:::
 
 ```{r}
 #| label: setup
@@ -50,6 +93,7 @@ Qatar Cars provides a more internationally-focused, modern cars-based demonstrat
 
 The original data was compiled by [Paul Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly sourced from [YallaMotors Qatar](https://qatar.yallamotor.com/). See [Paul's writeup of the background and purpose of the data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset).
 
+
 ## Formats
 
 The Qatar Cars data is available in several different formats:
@@ -81,7 +125,7 @@ The Qatar Cars data is available in several different formats:
 
   ```python
   from qatarcars import get_qatar_cars
-  df = get_qatar_cars("pandas")
+  df = get_qatar_cars("pandas")  # or "polars"
   df.head()
   ```
 
@@ -119,6 +163,8 @@ qatarcars
 ::: {.callout-tip}
 If you have [{tibble}](https://tibble.tidyverse.org/) installed (likely as part of [the tidyverse](https://www.tidyverse.org/)), `qatarcars` will load as a tibble with nicer printing output; if you do not have {tibble} installed, the data will load as a standard data frame.
 :::
+
+See `?qatarcars` for data documentation within R.
 
 
 ### Labels
