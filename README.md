@@ -2,7 +2,9 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-# qatarcars <img src="man/figures/qatarcars_hex.png" align="right" height="138" alt="" />
+<img src="man/figures/qatarcars_hex.png" align="right" height="138" alt="" />
+
+# qatarcars
 
 <!-- badges: start -->
 
