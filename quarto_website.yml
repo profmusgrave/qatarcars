@@ -4,11 +4,11 @@ project:
 
 website:
   title: "$ALTDOC_PACKAGE_NAME"
+  favicon: "assets/favicon.png"
 
   navbar:
     search: true
     background: "#8A1538"
-    favicon: "assets/favicon.png"
     left:
       - text: "{{< fa file-lines >}} Article"
         href: "#"
