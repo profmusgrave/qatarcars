@@ -69,9 +69,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-<img src="man/figures/img/qatarcars_hex.png" align="right" width="138" alt="qatarcars logo" />
-
-# qatarcars
+# qatarcars <img src="man/figures/logo.png" align="right" height="138" alt="" />
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars)](https://cran.r-project.org/package=qatarcars) 
