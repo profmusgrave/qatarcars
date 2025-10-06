@@ -8,11 +8,10 @@
 
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars.png)](https://cran.r-project.org/package=qatarcars)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars.png)](.)
 [![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml)
-[![CC-BY-4.0
-license](https://img.shields.io/badge/license-CC--BY--4.0-green)](LICENSE.md)
-
+![CC-BY-4.0
+license](https://img.shields.io/github/license/profmusgrave/qatarcars.png)
 <!-- badges: end -->
 
 ## Overview
