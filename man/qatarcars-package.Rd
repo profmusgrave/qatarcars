@@ -3,7 +3,7 @@
 \docType{package}
 \name{qatarcars-package}
 \alias{qatarcars-package}
-\title{qatarcars: Qatar Cars Data}
+\title{qatarcars: Data on Cars in Qatar}
 \description{
 Fuel economy, size, performance, and price data for cars in Qatar in 2025. Mirrors many of the columns in mtcars, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States.
 }

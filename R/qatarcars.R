@@ -24,4 +24,38 @@
 #' @source \url{https://github.com/profmusgrave/qatarcars}
 #' @source \url{https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset}
 #' @source Yalla Motors Qatar
+#' 
+#' @examples
+#' str(qatarcars)
+#' head(qatarcars)
+#' summary(qatarcars)
+#' table(qatarcars$origin)
+#' aggregate(price ~ enginetype, qatarcars, mean)
+#' barplot(table(factor(
+#'   qatarcars$seating,
+#'   levels = min(qatarcars$seating):max(qatarcars$seating)
+#' )))
+#' plot(economy ~ mass, qatarcars)
+#' plot(price ~ performance, qatarcars, log = "y")
+#'
+#' if (require("dplyr") && require("ggplot2")) {
+#'   glimpse(qatarcars)
+#'
+#'   qatarcars |> 
+#'     count(origin)
+#'
+#'   qatarcars |> 
+#'     group_by(enginetype) |> 
+#'     summarize(avg_price = mean(price))
+#'
+#'   ggplot(qatarcars, aes(x = seating)) + 
+#'     geom_bar()
+#'
+#'   ggplot(qatarcars, aes(x = mass, y = economy)) + 
+#'     geom_point()
+#'
+#'   ggplot(qatarcars, aes(x = performance, y = price)) +
+#'     geom_point() + 
+#'     scale_y_log10()
+#' }
 "qatarcars"

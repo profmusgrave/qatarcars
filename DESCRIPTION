@@ -1,8 +1,8 @@
 Package: qatarcars
 Type: Package
-Title: Qatar Cars Data
+Title: Data on Cars in Qatar
 Version: 1.0.0
-Date: 2025-10-04
+Date: 2025-10-09
 Authors@R: c(
     person(
       given = "Paul", 
