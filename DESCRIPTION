@@ -32,6 +32,7 @@ BugReports: https://github.com/profmusgrave/qatarcars/issues
 Suggests: 
     altdoc,
     downlit,
+    dplyr,
     ggplot2,
     scales,
     testthat (>= 3.0.0),
