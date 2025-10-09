@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.25">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>qatarcars – qatarcars</title>
 <style>
 code{white-space: pre-wrap;}
@@ -20,8 +17,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,8 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b80b11ddaa1f587e700275c283b9e905.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -71,16 +101,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
@@ -94,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../#"> 
 <span class="menu-text"><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> Article</span></a>
   </li>  
@@ -102,8 +127,8 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-fa-download--other-formats" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><i class="fa-solid fa-download" aria-label="download"></i> Other formats</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-fa-download--other-formats">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-fa-download--other-formats">
+<li>
     <a class="dropdown-item" href="https://raw.githubusercontent.com/profmusgrave/qatarcars/refs/heads/main/inst/extdata/qatarcars.csv">
  <span class="dropdown-text"><i class="fa-solid fa-file-csv" aria-label="file-csv"></i> CSV</span></a>
   </li>  
@@ -120,22 +145,20 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text"><i class="fa-brands fa-python" aria-label="python"></i> Python package</span></a>
   </li>  
     </ul>
-  </li>
+</li>
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item compact">
     <a class="nav-link" href="https://github.com/profmusgrave/qatarcars"> <i class="bi bi-github" role="img" aria-label="qatarcars GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -143,19 +166,15 @@ ul.task-list li input[type="checkbox"] {
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../index.html" class="sidebar-logo-link">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
@@ -169,15 +188,15 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../vignettes/README_research-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Research data README</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -186,15 +205,15 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../man/qatarcars.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">qatarcars</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../NEWS.html" class="sidebar-item-text sidebar-link">
@@ -214,44 +233,33 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#fuel-economy-size-performance-and-price-data-for-cars-in-qatar" id="toc-fuel-economy-size-performance-and-price-data-for-cars-in-qatar" class="nav-link active" data-scroll-target="#fuel-economy-size-performance-and-price-data-for-cars-in-qatar">Fuel economy, size, performance, and price data for cars in Qatar</a>
+<li>
+<a href="#fuel-economy-size-performance-and-price-data-for-cars-in-qatar" id="toc-fuel-economy-size-performance-and-price-data-for-cars-in-qatar" class="nav-link active" data-scroll-target="#fuel-economy-size-performance-and-price-data-for-cars-in-qatar">Fuel economy, size, performance, and price data for cars in Qatar</a>
   <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+<li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
   <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format">Format</a></li>
   <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">Source</a></li>
-  </ul></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../man/qatarcars.html">Reference</a></li><li class="breadcrumb-item"><a href="../man/qatarcars.html">qatarcars</a></li></ol></nav></header>
-
-
-
-
-<section id="fuel-economy-size-performance-and-price-data-for-cars-in-qatar" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="fuel-economy-size-performance-and-price-data-for-cars-in-qatar">Fuel economy, size, performance, and price data for cars in Qatar</h2>
-<section id="description" class="level3">
-<h3 class="anchored" data-anchor-id="description">Description</h3>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../man/qatarcars.html">Reference</a></li><li class="breadcrumb-item"><a href="../man/qatarcars.html">qatarcars</a></li></ol></nav></header><section id="fuel-economy-size-performance-and-price-data-for-cars-in-qatar" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="fuel-economy-size-performance-and-price-data-for-cars-in-qatar">Fuel economy, size, performance, and price data for cars in Qatar</h2>
+<section id="description" class="level3"><h3 class="anchored" data-anchor-id="description">Description</h3>
 <p>Includes prices and other specifications taken from YallaMotors Qatar between January to August 2025</p>
-</section>
-<section id="usage" class="level3">
-<h3 class="anchored" data-anchor-id="usage">Usage</h3>
+</section><section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
 <pre><code class="language-R">qatarcars
 </code></pre>
-</section>
-<section id="format" class="level3">
-<h3 class="anchored" data-anchor-id="format">Format</h3>
+</section><section id="format" class="level3"><h3 class="anchored" data-anchor-id="format">Format</h3>
 <p>A tibble with 99 rows and 15 variables:</p>
 <dl>
 <dt>
@@ -344,20 +352,157 @@ enginetype
 <dd>
 a factor denoting car engine type
 </dd>
-</dl>
-</section>
-<section id="source" class="level3">
-<h3 class="anchored" data-anchor-id="source">Source</h3>
+</dl></section><section id="source" class="level3"><h3 class="anchored" data-anchor-id="source">Source</h3>
 <p><a href="https://github.com/profmusgrave/qatarcars">https://github.com/profmusgrave/qatarcars</a></p>
 <p><a href="https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset">https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset</a></p>
 <p>Yalla Motors Qatar</p>
+</section><section id="examples" class="level3"><h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://profmusgrave.github.io/qatarcars/">"qatarcars"</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [99 × 15] (S3: tbl_df/tbl/data.frame)
+ $ origin     : Factor w/ 8 levels "Germany","Italy",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ make       : Factor w/ 30 levels "Audi","Bentley",..: 4 4 4 1 1 1 22 22 22 22 ...
+ $ model      : Factor w/ 99 levels "3","3 Series Convertible",..: 2 3 90 74 75 7 55 40 32 42 ...
+ $ length     : num [1:99] 4.71 4.71 4.5 5.01 4.54 ...
+  ..- attr(*, "label")= chr "Length (m)"
+ $ width      : num [1:99] 1.83 1.83 1.84 1.69 1.85 ...
+  ..- attr(*, "label")= chr "Width (m)"
+ $ height     : num [1:99] 1.44 1.44 1.64 2 1.41 ...
+  ..- attr(*, "label")= chr "Height (m)"
+ $ seating    : num [1:99] 5 5 5 5 5 5 4 5 5 5 ...
+  ..- attr(*, "label")= chr "Number of Seats"
+ $ trunk      : num [1:99] 480 59 505 605 321 425 500 480 610 435 ...
+  ..- attr(*, "label")= chr "Trunk Capacity (L)"
+ $ economy    : num [1:99] 11.8 7.6 6.6 12.1 8.7 6.5 13.3 13.1 NA 5.6 ...
+  ..- attr(*, "label")= chr "Fuel Economy (L/100km)"
+ $ horsepower : num [1:99] 184 386 313 600 400 180 612 585 333 163 ...
+  ..- attr(*, "label")= chr "Horsepower"
+ $ price      : num [1:99] 190300 164257 264000 630000 310000 ...
+  ..- attr(*, "label")= chr "Price (QAR)"
+ $ mass       : num [1:99] 1777 1653 1701 2490 1565 ...
+  ..- attr(*, "label")= chr "Mass (kg)"
+ $ performance: num [1:99] 5.8 4.3 5.4 3.6 3.8 6.7 4.1 4.3 5.6 6.8 ...
+  ..- attr(*, "label")= chr "Time 0-100km/h (s)"
+ $ type       : Factor w/ 4 levels "Coupe","Hatchback",..: 1 4 3 3 4 4 4 3 4 3 ...
+  ..- attr(*, "label")= chr "Type"
+ $ enginetype : Factor w/ 3 levels "Electric","Hybrid",..: 3 3 3 3 3 3 3 3 1 3 ...
+  ..- attr(*, "label")= chr "Engine Type"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 15
+  origin make  model length width height seating trunk economy horsepower  price
+  &lt;fct&gt;  &lt;fct&gt; &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+1 Germa… BMW   3 Se…   4.71  1.83   1.44       5   480    11.8        184 190300
+2 Germa… BMW   3 Se…   4.71  1.83   1.44       5    59     7.6        386 164257
+3 Germa… BMW   X1      4.50  1.84   1.64       5   505     6.6        313 264000
+4 Germa… Audi  RS Q8   5.01  1.69   2.00       5   605    12.1        600 630000
+5 Germa… Audi  RS3     4.54  1.85   1.41       5   321     8.7        400 310000
+6 Germa… Audi  A3      4.46  1.96   1.42       5   425     6.5        180 165000
+# ℹ 4 more variables: mass &lt;dbl&gt;, performance &lt;dbl&gt;, type &lt;fct&gt;,
+#   enginetype &lt;fct&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         origin         make                     model        length     
+ Japan      :27   Toyota  :10   3                   : 1   Min.   :3.800  
+ Germany    :20   BMW     : 5   3 Series Convertible: 1   1st Qu.:4.540  
+ PR China   :16   Kia     : 5   3 Series Sedan      : 1   Median :4.708  
+ UK         :11   Mercedes: 5   720S                : 1   Mean   :4.708  
+ USA        : 9   Lexus   : 4   8 Series Gran Coupe : 1   3rd Qu.:4.881  
+ South Korea: 8   Mazda   : 4   991 Carrera S       : 1   Max.   :5.469  
+ (Other)    : 8   (Other) :66   (Other)             :93                  
+     width           height         seating         trunk       
+ Min.   :1.670   Min.   :1.122   Min.   :2.00   Min.   :   0.0  
+ 1st Qu.:1.827   1st Qu.:1.452   1st Qu.:5.00   1st Qu.: 295.0  
+ Median :1.890   Median :1.605   Median :5.00   Median : 455.0  
+ Mean   :1.926   Mean   :1.581   Mean   :5.04   Mean   : 449.8  
+ 3rd Qu.:1.980   3rd Qu.:1.690   3rd Qu.:5.00   3rd Qu.: 550.0  
+ Max.   :4.633   Max.   :1.998   Max.   :8.00   Max.   :1233.0  
+                                                                
+    economy         horsepower         price               mass     
+ Min.   : 1.200   Min.   :  76.0   Min.   :   37400   Min.   : 945  
+ 1st Qu.: 6.500   1st Qu.: 166.5   1st Qu.:  101450   1st Qu.:1456  
+ Median : 7.700   Median : 250.0   Median :  165000   Median :1751  
+ Mean   : 8.912   Mean   : 329.3   Mean   :  840910   Mean   :1807  
+ 3rd Qu.:10.900   3rd Qu.: 384.0   3rd Qu.:  319245   3rd Qu.:2106  
+ Max.   :22.500   Max.   :1973.0   Max.   :33000000   Max.   :2746  
+ NA's   :10                                                         
+  performance            type       enginetype
+ Min.   : 2.400   Coupe    :13   Electric:10  
+ 1st Qu.: 4.650   Hatchback: 7   Hybrid  :14  
+ Median : 6.800   SUV      :49   Petrol  :75  
+ Mean   : 6.813   Sedan    :30                
+ 3rd Qu.: 8.400                               
+ Max.   :14.000                               
+                                              </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">origin</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Germany       Italy       Japan    PR China South Korea      Sweden 
+         20           5          27          16           8           3 
+         UK         USA 
+         11           9 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">price</span> <span class="op">~</span> <span class="va">enginetype</span>, <span class="va">qatarcars</span>, <span class="va">mean</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  enginetype     price
+1   Electric 1045377.0
+2     Hybrid  372256.9
+3     Petrol  901129.5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span></span>
+<span>  <span class="va">qatarcars</span><span class="op">$</span><span class="va">seating</span>,</span>
+<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">seating</span><span class="op">)</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">seating</span><span class="op">)</span></span>
+<span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="qatarcars_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">economy</span> <span class="op">~</span> <span class="va">mass</span>, <span class="va">qatarcars</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="qatarcars_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">price</span> <span class="op">~</span> <span class="va">performance</span>, <span class="va">qatarcars</span>, log <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="qatarcars_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">"dplyr"</a></span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org">"ggplot2"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">glimpse</span><span class="op">(</span><span class="va">qatarcars</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu">count</span><span class="op">(</span><span class="va">origin</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">enginetype</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu">summarize</span><span class="op">(</span>avg_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">seating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mass</span>, y <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -758,8 +903,7 @@ a factor denoting car engine type
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -771,8 +915,6 @@ a factor denoting car engine type
     </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
