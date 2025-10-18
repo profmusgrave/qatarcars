@@ -12,13 +12,13 @@ website:
     background: "#8A1538"
     left:
       - text: "{{< fa file-lines >}} Article"
-        href: "#"
+        href: "https://doi.org/10.1080/15512169.2025.2572320"
       - text: "{{< fa download >}} Other formats"
         menu:
         - text: "{{< fa file-csv >}} CSV"
           href: "https://raw.githubusercontent.com/profmusgrave/qatarcars/refs/heads/main/inst/extdata/qatarcars.csv"
         - text: "{{< fa table >}} Stata .dta"
-          href: "https://github.com/profmusgrave/qatarcars/raw/refs/heads/main/inst/extdata/qatarcars.dta"
+          href: "https://qatarcars.georgetown.domains/qatarcars.dta"
         - text: "{{< fa brands r-project >}} R .rds"
           href: "https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.rds"
         - text: "{{< fa brands python >}} Python package"
@@ -50,7 +50,7 @@ website:
         file: $ALTDOC_CITATION
 
   page-footer: |
-    Data and content licensed under [{{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+    Data and content licensed under<br>[{{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 format:
   html:
