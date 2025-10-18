@@ -33,11 +33,11 @@ A few important notes about building, maintaining, and deploying this package:
 
 ### Data
 
-The canonical source of data is the Stata file at `inst/extdata/qatarcars.dta`. If this file is ever updated, two things need to happen:
+The canonical source of data is the Stata file at `inst/extdata/qatarcars.dta` (and at <https://qatarcars.georgetown.domains/qatarcars.dta>). If this file is ever updated, two things need to happen:
 
 1. Run the script at `data-raw/qatarcars.R` to convert the `.dta` file to the package's internal file type, CSV, and RDS.
 
-2. Run `testthat::snapshot_accept()` to update the test snapshot (`tests/testthat/test-data.R` checks the data against a saved snapshot)
+2. Run `testthat::snapshot_accept('data')` to update the test snapshot (`tests/testthat/test-data.R` checks the data against a saved snapshot)
 
 Once that's all done, document, build, and check like normal (see below).
 
@@ -74,8 +74,10 @@ knitr::opts_chunk$set(
 # qatarcars
 
 <!-- badges: start -->
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars)](/) 
+[![CRAN status](https://www.r-pkg.org/badges/version/qatarcars)](https://cran.r-project.org/package=qatarcars) 
 [![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml) 
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) <br>
+[![DOI](https://img.shields.io/badge/JPSE_DOI-10.1080%2F15512169.2025.2572320-336197)](https://doi.org/10.1080/15512169.2025.2572320) 
 ![CC-BY-4.0 license](https://img.shields.io/github/license/profmusgrave/qatarcars)
 <!-- badges: end -->
 
@@ -96,7 +98,13 @@ Qatar Cars provides a more internationally-focused, modern cars-based demonstrat
 - `type` (the type of the car, such as coupe, sedan, or SUV)
 - `enginetype` (electric, hybrid, or petrol)
 
-The original data was compiled by [Paul Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly sourced from YallaMotors Qatar. See [Paul's writeup of the background and purpose of the data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset).
+The original data was compiled by [Paul Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly sourced from YallaMotors Qatar. See [Paul's writeup of the background and purpose of the data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset). 
+
+See this article for a more detailed description of the rationale for and process of collecting the data:
+
+> Paul Musgrave, “Defaulting to Inclusion: Producing Sample Datasets for the Global Data Science Classroom,” *Journal of Political Science Education*, 2025, 1–11, <https://doi.org/10.1080/15512169.2025.2572320>.
+
+
 
 
 ## Formats
@@ -112,10 +120,10 @@ The Qatar Cars data is available in several different formats:
 
 - [**Plain text CSV file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.csv). Use with any software.
 
-- [**Stata .dta file**](https://github.com/profmusgrave/qatarcars/raw/refs/heads/main/inst/extdata/qatarcars.dta). Load like this:
+- [**Stata .dta file**](https://qatarcars.georgetown.domains/qatarcars.dta). Load like this:
 
   ```stata
-  use "qatarcars.dta"
+  use "https://qatarcars.georgetown.domains/qatarcars.dta"
   list in 1/6
   ```
 
@@ -288,14 +296,14 @@ The data was collected as part of a statistics course for International Politics
 # DATA-SPECIFIC INFORMATION FOR QATAR CARS DATASET
 
 * Number of variables: 15
-* Number of cases/rows: 99
+* Number of cases/rows: 105
 * Variable List: 
 
 origin          Origin Country Associated with Car (Germany, Italy, Japan, PR China, South Korea, Sweden, UK, USA)
 
 make            Make (30 unique variables; names of brands of automobiles: Audi, BMW, BYD, Bentley, Bestune, Bugatti, Cadillac, Chery, Ford, Geely, Honda, Hyundai, Jaguar, Jetour, Kia, Land Rover, Lexus, Lotus, MG, Maserati, Mazda, McLaren, Mercedes, Mitsubishi, Nissan, Porsche, Tesla, Toyota, Volkswagen, Volvo
 
-model           Model (99 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid)
+model           Model (105 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid)
 length          Length (m)
 width           Width (m)
 height          Height (m)

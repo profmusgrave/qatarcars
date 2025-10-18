@@ -5,7 +5,7 @@
 \alias{qatarcars}
 \title{Fuel economy, size, performance, and price data for cars in Qatar}
 \format{
-A tibble with 99 rows and 15 variables:
+A tibble with 105 rows and 15 variables:
 \describe{
 \item{origin}{a factor denoting car country of origin}
 \item{make}{a factor denoting car make}

@@ -3,7 +3,7 @@
 #' Includes prices and other specifications taken from YallaMotors Qatar 
 #' between January to August 2025
 #'
-#' @format A tibble with 99 rows and 15 variables:
+#' @format A tibble with 105 rows and 15 variables:
 #' \describe{
 #'   \item{origin}{a factor denoting car country of origin}
 #'   \item{make}{a factor denoting car make}

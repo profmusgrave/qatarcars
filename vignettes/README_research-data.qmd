@@ -67,14 +67,14 @@ The data was collected as part of a statistics course for International Politics
 # DATA-SPECIFIC INFORMATION FOR QATAR CARS DATASET
 
 * Number of variables: 15
-* Number of cases/rows: 99
+* Number of cases/rows: 105
 * Variable List: 
 
   | Variable | Description |
   | -------- | ----------- |
   | `origin` | Origin Country Associated with Car (Germany, Italy, Japan, PR China, South Korea, Sweden, UK, USA) |
   | `make` | Make (30 unique variables; names of brands of automobiles: Audi, BMW, BYD, Bentley, Bestune, Bugatti, Cadillac, Chery, Ford, Geely, Honda, Hyundai, Jaguar, Jetour, Kia, Land Rover, Lexus, Lotus, MG, Maserati, Mazda, McLaren, Mercedes, Mitsubishi, Nissan, Porsche, Tesla, Toyota, Volkswagen, Volvo) |
-  | `model` | Model (99 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid) |
+  | `model` | Model (105 unique models, such as Tiggo 8 Pro Max and Rav4 Hybrid) |
   | `length` | Length (m) |
   | `width` | Width (m) |
   | `height` | Height (m) |

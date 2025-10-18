@@ -1,0 +1,42 @@
+citHeader("To cite qatarcars in publications, please use:")
+
+bibentry(
+  bibtype = "Article",
+  title = "Defaulting to Inclusion: Producing Sample Datasets for the Global Data Science Classroom",
+  author = person(
+    given = "Paul",
+    family = "Musgrave",
+    email = "rpm47@georgetown.edu",
+    comment = c(ORCID = "0000-0002-8984-4992")
+  ),
+  journal = "Journal of Political Science Education",
+  year = "2025",
+  volume = "",
+  number = "",
+  pages = "1-11",
+  doi = "10.1080/15512169.2025.2572320"
+)
+
+bibentry(
+  bibtype = "Manual",
+  title = "\\{qatarcars\\}: Data on Cars in {Qatar}",
+  author = c(
+    person(
+      given = "Paul",
+      family = "Musgrave",
+      email = "rpm47@georgetown.edu",
+      comment = c(ORCID = "0000-0002-8984-4992")
+    ),
+    person(
+      given = "Andrew",
+      family = "Heiss",
+      email = "andrew@andrewheiss.com",
+      comment = c(ORCID = "0000-0002-3948-3914")
+    )
+  ),
+  year = sub("-.*", "", meta$Date),
+  note = sprintf("R package version %s", meta$Version),
+  url = "https://profmusgrave.github.io/qatarcars/"
+)
+
+citFooter("Use 'toBibtex(citation(\"qatarcars\"))' to extract BibTeX entries.")

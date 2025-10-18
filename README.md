@@ -8,8 +8,13 @@
 
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qatarcars.png)](.)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/qatarcars.png)](https://cran.r-project.org/package=qatarcars)
 [![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+<br>
+[![DOI](https://img.shields.io/badge/JPSE_DOI-10.1080%2F15512169.2025.2572320-336197)](https://doi.org/10.1080/15512169.2025.2572320)
 ![CC-BY-4.0
 license](https://img.shields.io/github/license/profmusgrave/qatarcars.png)
 <!-- badges: end -->
@@ -23,17 +28,17 @@ metric measurements, making it more appropriate for use as an example
 dataset outside the United States. It includes almost exactly the same
 variables as the `mtcars` dataset:
 
-- `origin` (the country associated with the car brand)
-- `make` (the brand of the car, such as Toyota or Land Rover)
-- `model` (the specific type of car, such as Land Cruiser or Defender)
-- `length`, `width`, and `height` (all in meters)
-- `trunk` capacity (measured in liters)
-- fuel `economy` (measured in liters per 100 km)
-- `performance` (time in seconds to accelerate from 0 to 100km/h)
-- `mass` in kilograms
-- `price` in 2025 Qatari riyals
-- `type` (the type of the car, such as coupe, sedan, or SUV)
-- `enginetype` (electric, hybrid, or petrol)
+-   `origin` (the country associated with the car brand)
+-   `make` (the brand of the car, such as Toyota or Land Rover)
+-   `model` (the specific type of car, such as Land Cruiser or Defender)
+-   `length`, `width`, and `height` (all in meters)
+-   `trunk` capacity (measured in liters)
+-   fuel `economy` (measured in liters per 100 km)
+-   `performance` (time in seconds to accelerate from 0 to 100km/h)
+-   `mass` in kilograms
+-   `price` in 2025 Qatari riyals
+-   `type` (the type of the car, such as coupe, sedan, or SUV)
+-   `enginetype` (electric, hybrid, or petrol)
 
 The original data was compiled by [Paul
 Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly
@@ -41,49 +46,57 @@ sourced from YallaMotors Qatar. See [Paul’s writeup of the background
 and purpose of the
 data](https://open.substack.com/pub/musgrave/p/introducing-the-qatar-cars-dataset).
 
+See this article for a more detailed description of the rationale for
+and process of collecting the data:
+
+> Paul Musgrave, “Defaulting to Inclusion: Producing Sample Datasets for
+> the Global Data Science Classroom,” *Journal of Political Science
+> Education*, 2025, 1–11,
+> <https://doi.org/10.1080/15512169.2025.2572320>.
+
 ## Formats
 
 The Qatar Cars data is available in several different formats:
 
-- **This {qatarcars} R package**. See below for complete details. Load
-  like this:
+-   **This {qatarcars} R package**. See below for complete details. Load
+    like this:
 
-  ``` r
-  library(qatarcars)
-  qatarcars
-  ```
+    ``` r
+    library(qatarcars)
+    qatarcars
+    ```
 
-- [**Plain text CSV
-  file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.csv).
-  Use with any software.
+-   [**Plain text CSV
+    file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.csv).
+    Use with any software.
 
-- [**Stata .dta
-  file**](https://github.com/profmusgrave/qatarcars/raw/refs/heads/main/inst/extdata/qatarcars.dta).
-  Load like this:
+-   [**Stata .dta
+    file**](https://qatarcars.georgetown.domains/qatarcars.dta). Load
+    like this:
 
-  ``` stata
-  use "qatarcars.dta"
-  list in 1/6
-  ```
+    ``` stata
+    use "https://qatarcars.georgetown.domains/qatarcars.dta"
+    list in 1/6
+    ```
 
-- [**R .rds
-  file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.rds).
-  Load like this:
+-   [**R .rds
+    file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.rds).
+    Load like this:
 
-  ``` r
-  df <- readRDS("qatarcars.rds")
-  head(df)
-  ```
+    ``` r
+    df <- readRDS("qatarcars.rds")
+    head(df)
+    ```
 
-- [**The QatarCars Python
-  package**](https://github.com/prlitics/qatarcars). Install with
-  `pip install qatarcars`, then load like this:
+-   [**The QatarCars Python
+    package**](https://github.com/prlitics/qatarcars). Install with
+    `pip install qatarcars`, then load like this:
 
-  ``` python
-  from qatarcars import get_qatar_cars
-  df = get_qatar_cars("pandas")  # or "polars"
-  df.head()
-  ```
+    ``` python
+    from qatarcars import get_qatar_cars
+    df = get_qatar_cars("pandas")  # or "polars"
+    df.head()
+    ```
 
 ## Installation
 
@@ -133,7 +146,7 @@ qatarcars
 #> #   enginetype <fct>
 ```
 
-> [!TIP]
+> **Tip**
 >
 > If you have [{tibble}](https://tibble.tidyverse.org/) installed
 > (likely as part of [the tidyverse](https://www.tidyverse.org/)),
