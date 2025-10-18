@@ -1,7 +1,7 @@
 Package: qatarcars
 Type: Package
 Title: Data on Cars in Qatar
-Version: 1.0.0
+Version: 1.0.0.9000
 Date: 2025-10-09
 Authors@R: c(
     person(
