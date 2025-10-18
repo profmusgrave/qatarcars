@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-<img src="man/figures/qatarcars_hex.png" align="right" height="138" alt="" />
+<img src="man/figures/img/qatarcars_hex.png" align="right" height="138" alt="" />
 
 # qatarcars
 
@@ -168,7 +168,7 @@ attributes(qatarcars$economy)
 
 These labels are visible in RStudio’s Viewer panel:
 
-![](man/figures/rstudio-viewer-labels.png)
+![](man/figures/img/rstudio-viewer-labels.png)
 
 If you use {ggplot2} v4.0+, these variable labels will [automatically
 appear in plot
