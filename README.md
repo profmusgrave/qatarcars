@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-<img src="man/figures/img/qatarcars_hex.png" align="right" height="138" alt="" />
+<img src="man/figures/qatarcars_hex.png" align="right" height="138" alt="" />
 
 # qatarcars
 
@@ -28,17 +28,17 @@ metric measurements, making it more appropriate for use as an example
 dataset outside the United States. It includes almost exactly the same
 variables as the `mtcars` dataset:
 
--   `origin` (the country associated with the car brand)
--   `make` (the brand of the car, such as Toyota or Land Rover)
--   `model` (the specific type of car, such as Land Cruiser or Defender)
--   `length`, `width`, and `height` (all in meters)
--   `trunk` capacity (measured in liters)
--   fuel `economy` (measured in liters per 100 km)
--   `performance` (time in seconds to accelerate from 0 to 100km/h)
--   `mass` in kilograms
--   `price` in 2025 Qatari riyals
--   `type` (the type of the car, such as coupe, sedan, or SUV)
--   `enginetype` (electric, hybrid, or petrol)
+- `origin` (the country associated with the car brand)
+- `make` (the brand of the car, such as Toyota or Land Rover)
+- `model` (the specific type of car, such as Land Cruiser or Defender)
+- `length`, `width`, and `height` (all in meters)
+- `trunk` capacity (measured in liters)
+- fuel `economy` (measured in liters per 100 km)
+- `performance` (time in seconds to accelerate from 0 to 100km/h)
+- `mass` in kilograms
+- `price` in 2025 Qatari riyals
+- `type` (the type of the car, such as coupe, sedan, or SUV)
+- `enginetype` (electric, hybrid, or petrol)
 
 The original data was compiled by [Paul
 Musgrave](https://paulmusgrave.info/) in January 2025 and is mostly
@@ -58,45 +58,45 @@ and process of collecting the data:
 
 The Qatar Cars data is available in several different formats:
 
--   **This {qatarcars} R package**. See below for complete details. Load
-    like this:
+- **This {qatarcars} R package**. See below for complete details. Load
+  like this:
 
-    ``` r
-    library(qatarcars)
-    qatarcars
-    ```
+  ``` r
+  library(qatarcars)
+  qatarcars
+  ```
 
--   [**Plain text CSV
-    file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.csv).
-    Use with any software.
+- [**Plain text CSV
+  file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.csv).
+  Use with any software.
 
--   [**Stata .dta
-    file**](https://qatarcars.georgetown.domains/qatarcars.dta). Load
-    like this:
+- [**Stata .dta
+  file**](https://qatarcars.georgetown.domains/qatarcars.dta). Load like
+  this:
 
-    ``` stata
-    use "https://qatarcars.georgetown.domains/qatarcars.dta"
-    list in 1/6
-    ```
+  ``` stata
+  use "https://qatarcars.georgetown.domains/qatarcars.dta"
+  list in 1/6
+  ```
 
--   [**R .rds
-    file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.rds).
-    Load like this:
+- [**R .rds
+  file**](https://github.com/profmusgrave/qatarcars/blob/main/inst/extdata/qatarcars.rds).
+  Load like this:
 
-    ``` r
-    df <- readRDS("qatarcars.rds")
-    head(df)
-    ```
+  ``` r
+  df <- readRDS("qatarcars.rds")
+  head(df)
+  ```
 
--   [**The QatarCars Python
-    package**](https://github.com/prlitics/qatarcars). Install with
-    `pip install qatarcars`, then load like this:
+- [**The QatarCars Python
+  package**](https://github.com/prlitics/qatarcars). Install with
+  `pip install qatarcars`, then load like this:
 
-    ``` python
-    from qatarcars import get_qatar_cars
-    df = get_qatar_cars("pandas")  # or "polars"
-    df.head()
-    ```
+  ``` python
+  from qatarcars import get_qatar_cars
+  df = get_qatar_cars("pandas")  # or "polars"
+  df.head()
+  ```
 
 ## Installation
 
@@ -146,7 +146,7 @@ qatarcars
 #> #   enginetype <fct>
 ```
 
-> **Tip**
+> [!TIP]
 >
 > If you have [{tibble}](https://tibble.tidyverse.org/) installed
 > (likely as part of [the tidyverse](https://www.tidyverse.org/)),
@@ -168,7 +168,7 @@ attributes(qatarcars$economy)
 
 These labels are visible in RStudio’s Viewer panel:
 
-![](man/figures/img/rstudio-viewer-labels.png)
+![](man/figures/rstudio-viewer-labels.png)
 
 If you use {ggplot2} v4.0+, these variable labels will [automatically
 appear in plot
