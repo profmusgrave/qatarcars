@@ -4,7 +4,7 @@
     "href": "NEWS.html",
     "title": "qatarcars (development version)",
     "section": "",
-    "text": "qatarcars (development version)\n\nMade some minor corrections to the data based on reviewer feedback (dropped one BMW, reclassified eight cars, and added six new cars)\nUpdated canonical URL to original .dta file to https://qatarcars.georgetown.domains/qatarcars.dta\nAdded citation information to inst/CITATION\n\n\n\nqatarcars 1.0.0\n\nInitial CRAN submission.",
+    "text": "qatarcars (development version)\n\nMade some minor corrections to the data based on reviewer feedback (dropped one BMW, reclassified eight cars, and added six new cars)\nUpdated canonical URL to original .dta file to https://qatarcars.georgetown.domains/qatarcars.dta\nAdded reference/citation information to DESCRIPTION and inst/CITATION\n\n\n\nqatarcars 1.0.0\n\nInitial CRAN submission.",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "News"
