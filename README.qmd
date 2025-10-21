@@ -197,12 +197,12 @@ Prices are stored as Qatari Riyals (QAR). At the time of data collection in Janu
 For convenience, this package includes functions for converting between these three currencies based on January 2025 exchange rates:
 
 ```{.r}
-qar_to_usd(qar)
-qar_to_eur(qar)
-usd_to_qar(usd)
-usd_to_eur(usd)
-eur_to_qar(eur)
-eur_to_usd(eur)
+qar_to_usd()
+qar_to_eur()
+usd_to_qar()
+usd_to_eur()
+eur_to_qar()
+eur_to_usd()
 ```
 
 ```{r}
