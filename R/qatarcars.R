@@ -38,22 +38,32 @@
 #' plot(economy ~ mass, qatarcars)
 #' plot(price ~ performance, qatarcars, log = "y")
 #'
-#' if (require("dplyr") && require("ggplot2")) {
+#' if (require("dplyr")) {
 #'   glimpse(qatarcars)
+#' }
 #'
+#' if (require("dplyr")) {
 #'   qatarcars |> 
 #'     count(origin)
+#' }
 #'
+#' if (require("dplyr")) {
 #'   qatarcars |> 
 #'     group_by(enginetype) |> 
 #'     summarize(avg_price = mean(price))
+#' }
 #'
+#' if (require("ggplot2")) {
 #'   ggplot(qatarcars, aes(x = seating)) + 
 #'     geom_bar()
-#'
+#' }
+#' 
+#' if (require("ggplot2")) {
 #'   ggplot(qatarcars, aes(x = mass, y = economy)) + 
 #'     geom_point()
+#' }
 #'
+#' if (require("ggplot2")) {
 #'   ggplot(qatarcars, aes(x = performance, y = price)) +
 #'     geom_point() + 
 #'     scale_y_log10()
