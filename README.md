@@ -149,7 +149,7 @@ qatarcars
 > [!TIP]
 >
 > If you have [{tibble}](https://tibble.tidyverse.org/) installed
-> (likely as part of [the tidyverse](https://www.tidyverse.org/)),
+> (likely as part of [the tidyverse](https://tidyverse.org/)),
 > `qatarcars` will load as a tibble with nicer printing output; if you
 > do not have {tibble} installed, the data will load as a standard data
 > frame.
@@ -236,7 +236,7 @@ These labels are visible in RStudio’s Viewer panel:
 
 If you use {ggplot2} v4.0+, these variable labels will [automatically
 appear in plot
-labels](https://www.tidyverse.org/blog/2025/09/ggplot2-4-0-0/#labels):
+labels](https://tidyverse.org/blog/2025/09/ggplot2-4-0-0/#labels):
 
 ``` r
 library(ggplot2)
