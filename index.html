@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-a14e345711173c227b21482e2eb4cc70.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6b1b1701ac6d617f8f74f57943f2ccf4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b80b11ddaa1f587e700275c283b9e905.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -208,6 +208,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./man/currency_conversion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">currency_conversion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./man/qatar_maroon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">qatar_maroon</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./man/qatarcars.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">qatarcars</span></a>
   </div>
@@ -250,6 +262,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
   <ul class="collapse">
 <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
+  <li><a href="#currency-conversion" id="toc-currency-conversion" class="nav-link" data-scroll-target="#currency-conversion">Currency conversion</a></li>
+  <li><a href="#color" id="toc-color" class="nav-link" data-scroll-target="#color">Color</a></li>
   <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels">Labels</a></li>
   </ul>
 </li>
@@ -262,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header><!-- README.md is generated from README.qmd. Please edit that file --><p><img src="man/figures/qatarcars_hex.png" align="right" height="138" alt=""></p>
 <section id="qatarcars" class="level1"><h1>qatarcars</h1>
 <!-- badges: start -->
-<p><a href="https://cran.r-project.org/package=qatarcars"><img src="https://www.r-pkg.org/badges/version/qatarcars.png" class="img-fluid" alt="CRAN status"></a> <a href="https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml"><img src="https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg" class="img-fluid" alt="R-CMD-check"></a> <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" class="img-fluid" alt="Lifecycle: stable"></a> <br><a href="https://doi.org/10.1080/15512169.2025.2572320"><img src="https://img.shields.io/badge/JPSE_DOI-10.1080%2F15512169.2025.2572320-336197" class="img-fluid" alt="DOI"></a> <img src="https://img.shields.io/github/license/profmusgrave/qatarcars.png" class="img-fluid" alt="CC-BY-4.0 license"><!-- badges: end --></p>
+<p><a href="https://cran.r-project.org/package=qatarcars"><img src="https://www.r-pkg.org/badges/version/qatarcars" class="img-fluid" alt="CRAN status"></a> <a href="https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml"><img src="https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg" class="img-fluid" alt="R-CMD-check"></a> <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" class="img-fluid" alt="Lifecycle: stable"></a> <br><a href="https://doi.org/10.1080/15512169.2025.2572320"><img src="https://img.shields.io/badge/JPSE_DOI-10.1080%2F15512169.2025.2572320-336197" class="img-fluid" alt="DOI"></a> <img src="https://img.shields.io/github/license/profmusgrave/qatarcars" class="img-fluid" alt="CC-BY-4.0 license"><!-- badges: end --></p>
 <section id="overview" class="level2"><h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Qatar Cars provides a more internationally-focused, modern cars-based demonstration dataset. It mirrors many of the columns in <code>mtcars</code>, but uses (1) non-US-centric makes and models, (2) 2025 prices, and (3) metric measurements, making it more appropriate for use as an example dataset outside the United States. It includes almost exactly the same variables as the <code>mtcars</code> dataset:</p>
 <ul>
@@ -362,10 +376,62 @@ Tip
 </div>
 </div>
 <p>See <code><a href="https:/profmusgrave.github.io/qatarcars/man/qatarcars.html">?qatarcars</a></code> for data documentation within R.</p>
+</section><section id="currency-conversion" class="level3"><h3 class="anchored" data-anchor-id="currency-conversion">Currency conversion</h3>
+<p>Prices are stored as Qatari Riyals (QAR). At the time of data collection in January 2025, the exchange rates between QAR and US Dollars and Euros were:</p>
+<ul>
+<li>1 USD = 3.64 QAR</li>
+<li>1 EUR = 4.15 QAR</li>
+</ul>
+<p>For convenience, this package includes functions for converting between these three currencies based on January 2025 exchange rates:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_usd</a></span><span class="op">(</span><span class="va">qar</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_eur</a></span><span class="op">(</span><span class="va">qar</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">usd_to_qar</a></span><span class="op">(</span><span class="va">usd</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">usd_to_eur</a></span><span class="op">(</span><span class="va">usd</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">eur_to_qar</a></span><span class="op">(</span><span class="va">eur</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">eur_to_usd</a></span><span class="op">(</span><span class="va">eur</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">qatarcars</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    price_eur <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_eur</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,</span>
+<span>    price_usd <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_usd</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">origin</span>, <span class="va">make</span>, <span class="va">model</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"price"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 105 × 6</span></span>
+<span><span class="co">#&gt;    origin  make     model            price price_eur price_usd</span></span>
+<span><span class="co">#&gt;    &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Germany BMW      3 Series Sedan  164257    39580     45126.</span></span>
+<span><span class="co">#&gt;  2 Germany BMW      X1              264000    63614.    72527.</span></span>
+<span><span class="co">#&gt;  3 Germany Audi     RS Q8           630000   151807.   173077.</span></span>
+<span><span class="co">#&gt;  4 Germany Audi     RS3             310000    74699.    85165.</span></span>
+<span><span class="co">#&gt;  5 Germany Audi     A3              165000    39759.    45330.</span></span>
+<span><span class="co">#&gt;  6 Germany Mercedes Maybach        1281000   308675.   351923.</span></span>
+<span><span class="co">#&gt;  7 Germany Mercedes G-Wagon        1011500   243735.   277885.</span></span>
+<span><span class="co">#&gt;  8 Germany Mercedes EQS             564500   136024.   155082.</span></span>
+<span><span class="co">#&gt;  9 Germany Mercedes GLA             209500    50482.    57555.</span></span>
+<span><span class="co">#&gt; 10 Germany Mercedes GLB 200         168997    40722.    46428.</span></span>
+<span><span class="co">#&gt; # ℹ 95 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="color" class="level3"><h3 class="anchored" data-anchor-id="color">Color</h3>
+<p>The official colors of the Qatari flag are <a href="https://en.wikipedia.org/wiki/Flag_of_Qatar">white and Pantone 1955 C, or “Qatar maroon.”</a> The hex representation of this color is <code>⁠#8A1538</code>.⁠</p>
+<p>For convenience, this is included as <code>qatar_maroon</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatar_maroon</span></span>
+<span><span class="co">#&gt; [1] "#8A1538"</span></span>
+<span></span>
+<span><span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html">show_col</a></span><span class="op">(</span><span class="va">qatar_maroon</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="man/figures/README-show-qatar-maroon-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
+</figure>
+</div>
+</div>
+</div>
 </section><section id="labels" class="level3"><h3 class="anchored" data-anchor-id="labels">Labels</h3>
 <p>Most columns in <code>qatarcars</code> are labeled:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">economy</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">economy</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $label</span></span>
 <span><span class="co">#&gt; [1] "Fuel Economy (L/100km)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -373,13 +439,27 @@ Tip
 <p><img src="man/figures/rstudio-viewer-labels.png" class="img-fluid"></p>
 <p>If you use {ggplot2} v4.0+, these variable labels will <a href="https://www.tidyverse.org/blog/2025/09/ggplot2-4-0-0/#labels">automatically appear in plot labels</a>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span>, fill <span class="op">=</span> <span class="st">"#8A1538"</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span>, fill <span class="op">=</span> <span class="va">qatar_maroon</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="man/figures/README-plot-economy-histogram-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+<figure class="figure"><p><img src="man/figures/README-plot-economy-histogram-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The various currency conversion functions also update the labels:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>price_eur <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_eur</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price_eur</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">20</span>, fill <span class="op">=</span> <span class="va">qatar_maroon</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>  <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_log10</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_currency.html">label_currency</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="st">"€"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="man/figures/README-plot-price-eur-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -387,26 +467,41 @@ Tip
 </section></section><section id="examples" class="level2"><h2 class="anchored" data-anchor-id="examples">Examples</h2>
 <p>Fuel efficiency gets worse as cars get heavier:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mass</span>, y <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mass</span>, y <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html">label_comma</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="man/figures/README-plot-mass-economy-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+<figure class="figure"><p><img src="man/figures/README-plot-mass-economy-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Some of these cars are really expensive, so logging the price is helpful:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_currency.html">label_currency</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="st">"QR "</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="man/figures/README-plot-performance-price-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+<figure class="figure"><p><img src="man/figures/README-plot-performance-price-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Or in dollars:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>price_usd <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_usd</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance</span>, y <span class="op">=</span> <span class="va">price_usd</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_currency.html">label_currency</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="st">"$"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="man/figures/README-plot-performance-price-usd-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </div>

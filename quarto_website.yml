@@ -59,3 +59,4 @@ format:
     code-link: true
     highlight-style: atom-one
     linkcolor: "#8A1538"
+    default-image-extension: ""
