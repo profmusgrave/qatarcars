@@ -26,7 +26,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3.9000
 Depends:
-    R (>= 3.5)
+    R (>= 4.1.0)
 URL: https://profmusgrave.github.io/qatarcars/, https://github.com/profmusgrave/qatarcars
 BugReports: https://github.com/profmusgrave/qatarcars/issues
 Suggests: 
