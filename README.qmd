@@ -8,16 +8,20 @@ A few important notes about building, maintaining, and deploying this package:
 
 ### Documentation
 
-- `README.md` is created with `README.qmd`. After making any changes to `README.qmd`, make sure you run this to generate a new `README.md`:
+- `README.md` is created with `README.qmd`. After making any changes to `README.qmd`, make sure you run this to generate a new `README.md` (note the `--default-image-extension` option---this is necessary to [prevent Quarto](https://github.com/quarto-dev/quarto-cli/issues/6092#issuecomment-1618063261) from appending `.png` to the badge URLs):
 
   ```bash
-  quarto render README.qmd --to gfm
+  quarto render README.qmd --to gfm --default-image-extension ""
   ```
 
   or
 
   ```r
-  quarto::quarto_render("README.qmd", output_format = "gfm")
+  quarto::quarto_render(
+    "README.qmd", 
+    output_format = "gfm", 
+    quarto_args = c("--default-image-extension", "")
+  )
   ```
 
 - The package documentation website is built with [{altdoc}](https://altdoc.etiennebacher.com/) and Quarto. I created the skeleton with:

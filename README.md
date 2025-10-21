@@ -9,14 +9,14 @@
 <!-- badges: start -->
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version/qatarcars.png)](https://cran.r-project.org/package=qatarcars)
+status](https://www.r-pkg.org/badges/version/qatarcars)](https://cran.r-project.org/package=qatarcars)
 [![R-CMD-check](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/profmusgrave/qatarcars/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <br>
 [![DOI](https://img.shields.io/badge/JPSE_DOI-10.1080%2F15512169.2025.2572320-336197)](https://doi.org/10.1080/15512169.2025.2572320)
 ![CC-BY-4.0
-license](https://img.shields.io/github/license/profmusgrave/qatarcars.png)
+license](https://img.shields.io/github/license/profmusgrave/qatarcars)
 <!-- badges: end -->
 
 ## Overview
