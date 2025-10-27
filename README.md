@@ -212,6 +212,9 @@ customary units (i.e. feet, pounds, gallons)
 - Liters ↔ cubic feet for trunk volume: `l_to_cuft()` and `cuft_to_l()`
 - Liters/100km ↔ miles per gallon for fuel economy: `lp100km_to_mpg()`
   and `mpg_to_lp100km()`
+  - **Note**: These are inverted! Higher MPG = lower L/100km. In SI
+    units, low `economy` values are good; in US customary units, high
+    `economy` values are good.
 - 0–100 km/h ↔ 0–60 mph for performance: `kmh100_to_mph60()` and
   `mph60_to_kmh100()`
   - This conversion is only approximate because 100 km/h corresponds to
@@ -315,6 +318,25 @@ ggplot(qatarcars, aes(x = mass, y = economy)) +
 ```
 
 <img src="man/figures/README-plot-mass-economy-1.png"
+style="width:80.0%" data-fig-align="center" />
+
+This is reversed when looking at miles per gallon. In SI units, low
+`economy` values are good; in US customary units, high `economy` values
+are good:
+
+``` r
+qatarcars |> 
+  mutate(
+    mass = kg_to_lbs(mass),
+    economy = lp100km_to_mpg(economy)
+  ) |> 
+  ggplot(aes(x = mass, y = economy)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_x_continuous(labels = scales::label_comma())
+```
+
+<img src="man/figures/README-plot-mass-economy-us-1.png"
 style="width:80.0%" data-fig-align="center" />
 
 Some of these cars are really expensive, so logging the price is

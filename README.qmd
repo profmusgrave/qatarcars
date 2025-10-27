@@ -224,6 +224,7 @@ Other helper functions are included to easily switch between SI (International S
 - Kilograms ↔ pounds for mass: `kg_to_lbs()` and `lbs_to_kg()`
 - Liters ↔ cubic feet for trunk volume: `l_to_cuft()` and `cuft_to_l()`
 - Liters/100km ↔ miles per gallon for fuel economy: `lp100km_to_mpg()` and `mpg_to_lp100km()`
+  - **Note**: These are inverted! Higher MPG = lower L/100km. In SI units, low `economy` values are good; in US customary units, high `economy` values are good.
 - 0–100 km/h ↔ 0–60 mph for performance: `kmh100_to_mph60()` and `mph60_to_kmh100()`
   - This conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate. For a comparable estimate, we assume constant acceleration (i.e. time is proportional to target speed).
   - Since 60 mph ≈ 96.56 km/h, we scale the km/h time down by ≈96.56% to convert to the mph time
@@ -307,6 +308,24 @@ Fuel efficiency gets worse as cars get heavier:
 #| message: false
 
 ggplot(qatarcars, aes(x = mass, y = economy)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_x_continuous(labels = scales::label_comma())
+```
+
+This is reversed when looking at miles per gallon. In SI units, low `economy` values are good; in US customary units, high `economy` values are good:
+
+```{r}
+#| label: plot-mass-economy-us
+#| warning: false
+#| message: false
+
+qatarcars |> 
+  mutate(
+    mass = kg_to_lbs(mass),
+    economy = lp100km_to_mpg(economy)
+  ) |> 
+  ggplot(aes(x = mass, y = economy)) +
   geom_point() +
   geom_smooth(method = "lm") +
   scale_x_continuous(labels = scales::label_comma())
