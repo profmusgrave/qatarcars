@@ -204,14 +204,14 @@ qatarcars |>
 
 Conversions between SI (International System) units (i.e. meters, grams,
 liters) and US customary units (i.e. feet, pounds, gallons) are *not*
-included as functions. This is a deliberate pedagogical choice. The data
-is designed to be universally inclusive with SI units used by the
+included as functions. **This is a deliberate pedagogical choice.** The
+data is designed to be universally inclusive with SI units used by the
 majority of the world. Users who work with US customary units should
 convert them on their own.
 
-See [the “Unit conversions” vignette](vignettes/unit-conversions.qmd)
-for guidance and examples for making these different conversions, since
-not all of the variables involve straightforward multiplication.
+[The “Unit conversions” vignette](vignettes/unit-conversions.qmd)
+includes guidance and examples for making these different conversions,
+since not all of the variables involve straightforward multiplication.
 
 Another benefit of not including built-in conversion functions like
 `m_to_ft()` is that this data can be used to teach learners how to write
