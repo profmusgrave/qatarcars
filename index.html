@@ -100,7 +100,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
@@ -222,12 +247,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./man/qatarcars.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">qatarcars</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./man/unit_conversion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">unit_conversion</span></a>
   </div>
 </li>
       </ul>
@@ -428,54 +447,98 @@ Tip
 <span><span class="co">#&gt; # ℹ 95 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="unit-conversions" class="level3"><h3 class="anchored" data-anchor-id="unit-conversions">Unit conversions</h3>
-<p>Other helper functions are included to easily switch between SI (International System) units (i.e.&nbsp;meters, grams, liters) and US customary units (i.e.&nbsp;feet, pounds, gallons)</p>
+<p>Conversions between SI (International System) units (i.e.&nbsp;meters, grams, liters) and US customary units (i.e.&nbsp;feet, pounds, gallons) are not included as functions. This is deliberate for pedagogical reasons. The data is designed to be universally inclusive with SI units used by the majority of the world. Users who work with US customary units can convert to them on their own.</p>
+<p>Here’s a guide to making this conversions, since not all of the variables are straightforward:</p>
+<p><strong>Distance (meters ↔︎ feet)</strong></p>
 <ul>
-<li>Meters ↔︎ feet for length, width, and height: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">m_to_ft()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">ft_to_m()</a></code>
+<li>1 foot = 0.3048 meters (<a href="https://en.wikipedia.org/wiki/Foot_(unit)">official standard</a>)</li>
+<li>1 meter = 3.28084 feet, or <span class="math inline">\(\frac{1}{0.3048}\)</span>
 </li>
-<li>Kilograms ↔︎ pounds for mass: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kg_to_lbs()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lbs_to_kg()</a></code>
-</li>
-<li>Liters ↔︎ cubic feet for trunk volume: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">l_to_cuft()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">cuft_to_l()</a></code>
-</li>
-<li>Liters/100km ↔︎ miles per gallon for fuel economy: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lp100km_to_mpg()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">mpg_to_lp100km()</a></code>
-<ul>
-<li>
-<strong>Note</strong>: These are inverted! Higher MPG = lower L/100km. In SI units, low <code>economy</code> values are good; in US customary units, high <code>economy</code> values are good.</li>
 </ul>
-</li>
-<li>0–100 km/h ↔︎ 0–60 mph for performance: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kmh100_to_mph60()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">mph60_to_kmh100()</a></code>
+<p><strong>Mass (kilograms ↔︎ pounds)</strong></p>
 <ul>
-<li>This conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate. For a comparable estimate, we assume constant acceleration (i.e.&nbsp;time is proportional to target speed).</li>
-<li>Since 60 mph ≈ 96.56 km/h, we scale the km/h time down by ≈96.56% to convert to the mph time</li>
-</ul>
+<li>1 pound = 0.45359237 kilograms (<a href="https://en.wikipedia.org/wiki/International_yard_and_pound">official standard</a>)</li>
+<li>1 kilogram = 2.204623 pounds, or <span class="math inline">\(\frac{1}{0.45359237}\)</span>
 </li>
+</ul>
+<p><strong>Volume (liters ↔︎ cubic feet)</strong></p>
+<ul>
+<li>1 liter = 0.03531467 cubic feet</li>
+<li>1 cubic foot = 28.31684 liters or <span class="math inline">\(\frac{1}{0.03531467}\)</span>
+</li>
+</ul>
+<p><em>Note</em>: 1 liter = 0.001 cubic meters, so in cubic feet, 1 liter = = 0.03531467</p>
+<p><strong>Fuel economy (L/100km ↔︎ MPG)</strong></p>
+<ul>
+<li>1 MPG = <span class="math inline">\(\frac{235.215}{\text{L/100km}}\)</span>
+</li>
+<li>1 L/100km = <span class="math inline">\(\frac{235.215}{\text{MPG}}\)</span>
+</li>
+</ul>
+<p><em>Note</em>: These are inverted! Higher MPG = lower L/100km. In SI units, low <code>economy</code> values are good; in US customary units, high <code>economy</code> values are good.</p>
+<p><em>Derivation</em> (using rounded values; exact values used in code):</p>
+<ul>
+<li>1 US gallon = 231 cubic inches = 3.785411784 liters (<a href="https://en.wikipedia.org/wiki/Gallon#US_gallon">official standard</a>)</li>
+<li>1 mile = 1.609344 kilometers, or </li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\text{L/100km} &amp;\rightarrow \text{MPG} \\
+&amp;= \frac{100 \text{ km}}{\text{L/100km}} \times \frac{1 \text{ mile}}{1.609 \text{ km}} \times \frac{3.785 \text{ L}}{1 \text{ gallon}}\\
+&amp;= \frac{100 \times 3.785}{1.609 \times \text{L/100km}} \times \frac{\text{ miles}}{\text{ gallon}} \\
+&amp;\approx \frac{235.215}{\text{L/100km}} \text{ MPG}
+\end{aligned}
+\]</span></p>
+<p><strong>Performance (0–100 km/h ↔︎ 0–60 mph)</strong></p>
+<p>This conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate. For a comparable estimate, we assume constant acceleration (i.e.&nbsp;time is proportional to target speed).</p>
+<p>60 mph = 96.56064 km/h (<span class="math inline">\(\frac{0.3048 \times 5280 \times 60}{1000}\)</span>), so 60 mph is ≈96.56% of 100 km/h. Thus:</p>
+<ul>
+<li>0–60 mph (s) = 0.9656064 × 0–100 km/h (s)</li>
+<li>0–100 km/h (s) = 0–60 mph (s) / 0.9656064</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">economy_conversion_factor</span> <span class="op">&lt;-</span> <span class="fl">100</span> <span class="op">*</span></span>
+<span>  <span class="fl">3.785411784</span> <span class="op">/</span> <span class="co"># liters in a gallon</span></span>
+<span>  <span class="op">(</span><span class="fl">0.3048</span> <span class="op">*</span> <span class="fl">5280</span> <span class="op">/</span> <span class="fl">1000</span><span class="op">)</span> <span class="co"># kilometers in a mile</span></span>
+<span></span>
+<span><span class="va">performance_conversion_factor</span> <span class="op">&lt;-</span> <span class="fl">0.3048</span> <span class="op">*</span> <span class="fl">5280</span> <span class="op">*</span> <span class="fl">60</span> <span class="op">/</span> <span class="fl">1000</span> <span class="op">/</span> <span class="fl">100</span></span>
+<span></span>
+<span><span class="va">qatarcars</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
-<span>    length_ft <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">m_to_ft</a></span><span class="op">(</span><span class="va">length</span><span class="op">)</span>,</span>
-<span>    economy_mpg <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lp100km_to_mpg</a></span><span class="op">(</span><span class="va">economy</span><span class="op">)</span></span>
+<span>    length_ft <span class="op">=</span> <span class="va">length</span> <span class="op">/</span> <span class="fl">0.3048</span>,</span>
+<span>    economy_mpg <span class="op">=</span> <span class="va">economy_conversion_factor</span> <span class="op">/</span> <span class="va">economy</span>,</span>
+<span>    performance_mpg <span class="op">=</span> <span class="va">performance</span> <span class="op">*</span> <span class="va">performance_conversion_factor</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">origin</span>, <span class="va">make</span>, <span class="va">model</span>, <span class="va">length</span>, <span class="va">length_ft</span>, <span class="va">economy</span>, <span class="va">economy_mpg</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 105 × 7</span></span>
-<span><span class="co">#&gt;    origin  make     model          length length_ft economy economy_mpg</span></span>
-<span><span class="co">#&gt;    &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 Germany BMW      3 Series Sedan   4.71      15.5     7.6        30.9</span></span>
-<span><span class="co">#&gt;  2 Germany BMW      X1               4.50      14.8     6.6        35.6</span></span>
-<span><span class="co">#&gt;  3 Germany Audi     RS Q8            5.01      16.4    12.1        19.4</span></span>
-<span><span class="co">#&gt;  4 Germany Audi     RS3              4.54      14.9     8.7        27.0</span></span>
-<span><span class="co">#&gt;  5 Germany Audi     A3               4.46      14.6     6.5        36.2</span></span>
-<span><span class="co">#&gt;  6 Germany Mercedes Maybach          5.47      17.9    13.3        17.7</span></span>
-<span><span class="co">#&gt;  7 Germany Mercedes G-Wagon          4.61      15.1    13.1        18.0</span></span>
-<span><span class="co">#&gt;  8 Germany Mercedes EQS              5.22      17.1    NA          NA  </span></span>
-<span><span class="co">#&gt;  9 Germany Mercedes GLA              4.41      14.5     5.6        42.0</span></span>
-<span><span class="co">#&gt; 10 Germany Mercedes GLB 200          4.63      15.2     7.5        31.4</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">make</span>, <span class="va">model</span>, <span class="va">length</span>, <span class="va">length_ft</span>, <span class="va">economy</span>, <span class="va">economy_mpg</span>, <span class="va">performance</span>, <span class="va">performance_mpg</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 105 × 8</span></span>
+<span><span class="co">#&gt;    make   model length length_ft economy economy_mpg performance performance_mpg</span></span>
+<span><span class="co">#&gt;    &lt;fct&gt;  &lt;fct&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 BMW    3 Se…   4.71      15.5     7.6        30.9         4.3            4.15</span></span>
+<span><span class="co">#&gt;  2 BMW    X1      4.50      14.8     6.6        35.6         5.4            5.21</span></span>
+<span><span class="co">#&gt;  3 Audi   RS Q8   5.01      16.4    12.1        19.4         3.6            3.48</span></span>
+<span><span class="co">#&gt;  4 Audi   RS3     4.54      14.9     8.7        27.0         3.8            3.67</span></span>
+<span><span class="co">#&gt;  5 Audi   A3      4.46      14.6     6.5        36.2         6.7            6.47</span></span>
+<span><span class="co">#&gt;  6 Merce… Mayb…   5.47      17.9    13.3        17.7         4.1            3.96</span></span>
+<span><span class="co">#&gt;  7 Merce… G-Wa…   4.61      15.1    13.1        18.0         4.3            4.15</span></span>
+<span><span class="co">#&gt;  8 Merce… EQS     5.22      17.1    NA          NA           5.6            5.41</span></span>
+<span><span class="co">#&gt;  9 Merce… GLA     4.41      14.5     5.6        42.0         6.8            6.57</span></span>
+<span><span class="co">#&gt; 10 Merce… GLB …   4.63      15.2     7.5        31.4         9              8.69</span></span>
 <span><span class="co">#&gt; # ℹ 95 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Another benefit of not including built-in conversion functions <code>m_to_ft()</code> is that this data can be used to teach learners how to write R functions:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m_to_ft</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">meters</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">meters</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">/</span> <span class="fl">0.3048</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">m_to_ft</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 328.084</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="color" class="level3"><h3 class="anchored" data-anchor-id="color">Color</h3>
 <p>The official colors of the Qatari flag are <a href="https://en.wikipedia.org/wiki/Flag_of_Qatar">white and Pantone 1955 C, or “Qatar maroon.”</a> The hex representation of this color is <code>⁠#8A1538</code>.⁠</p>
 <p>For convenience, this is included as <code>qatar_maroon</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatar_maroon</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatar_maroon</span></span>
 <span><span class="co">#&gt; [1] "#8A1538"</span></span>
 <span></span>
 <span><span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html">show_col</a></span><span class="op">(</span><span class="va">qatar_maroon</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -489,7 +552,7 @@ Tip
 </section><section id="labels" class="level3"><h3 class="anchored" data-anchor-id="labels">Labels</h3>
 <p>Most columns in <code>qatarcars</code> are labeled:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">economy</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">economy</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $label</span></span>
 <span><span class="co">#&gt; [1] "Fuel Economy (L/100km)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -497,7 +560,7 @@ Tip
 <p><img src="man/figures/rstudio-viewer-labels.png" class="img-fluid"></p>
 <p>If you use {ggplot2} v4.0+, these variable labels will <a href="https://tidyverse.org/blog/2025/09/ggplot2-4-0-0/#labels">automatically appear in plot labels</a>:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span>, fill <span class="op">=</span> <span class="va">qatar_maroon</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -510,7 +573,7 @@ Tip
 </div>
 <p>The various conversion functions also update the labels:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>price_eur <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_eur</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price_eur</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">20</span>, fill <span class="op">=</span> <span class="va">qatar_maroon</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>  <span class="op">+</span></span>
@@ -525,7 +588,7 @@ Tip
 </section></section><section id="examples" class="level2"><h2 class="anchored" data-anchor-id="examples">Examples</h2>
 <p>Fuel efficiency gets worse as cars get heavier:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mass</span>, y <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mass</span>, y <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html">label_comma</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -538,15 +601,20 @@ Tip
 </div>
 <p>This is reversed when looking at miles per gallon. In SI units, low <code>economy</code> values are good; in US customary units, high <code>economy</code> values are good:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">economy_conversion_factor</span> <span class="op">&lt;-</span> <span class="fl">100</span> <span class="op">*</span></span>
+<span>  <span class="fl">3.785411784</span> <span class="op">/</span> <span class="co"># liters in a gallon</span></span>
+<span>  <span class="op">(</span><span class="fl">0.3048</span> <span class="op">*</span> <span class="fl">5280</span> <span class="op">/</span> <span class="fl">1000</span><span class="op">)</span> <span class="co"># kilometers in a mile</span></span>
+<span></span>
+<span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
-<span>    mass <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kg_to_lbs</a></span><span class="op">(</span><span class="va">mass</span><span class="op">)</span>,</span>
-<span>    economy <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lp100km_to_mpg</a></span><span class="op">(</span><span class="va">economy</span><span class="op">)</span></span>
+<span>    mass_lbs <span class="op">=</span> <span class="va">mass</span> <span class="op">/</span> <span class="fl">0.45359237</span>,</span>
+<span>    economy_mph <span class="op">=</span> <span class="va">economy_conversion_factor</span> <span class="op">/</span> <span class="va">economy</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mass</span>, y <span class="op">=</span> <span class="va">economy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mass_lbs</span>, y <span class="op">=</span> <span class="va">economy_mph</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html">label_comma</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html">label_comma</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Mass (lbs)"</span>, y <span class="op">=</span> <span class="st">"Fuel Economy (mpg)"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="man/figures/README-plot-mass-economy-us-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
@@ -556,7 +624,7 @@ Tip
 </div>
 <p>Some of these cars are really expensive, so logging the price is helpful:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_currency.html">label_currency</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="st">"QR "</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -569,15 +637,16 @@ Tip
 </div>
 <p>Or in dollars:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>    price_usd <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_usd</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,</span>
-<span>    performance_mph <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kmh100_to_mph60</a></span><span class="op">(</span><span class="va">performance</span><span class="op">)</span></span>
+<span>    performance_mph <span class="op">=</span> <span class="va">performance</span> <span class="op">*</span> <span class="op">(</span><span class="fl">0.3048</span> <span class="op">*</span> <span class="fl">5280</span> <span class="op">*</span> <span class="fl">60</span> <span class="op">/</span> <span class="fl">1000</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance_mph</span>, y <span class="op">=</span> <span class="va">price_usd</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_currency.html">label_currency</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="st">"$"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_currency.html">label_currency</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="st">"$"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Time 0-60 mph (s)"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="man/figures/README-plot-performance-price-usd-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
