@@ -48,85 +48,85 @@
   {
     "objectID": "vignettes/unit-conversions.html",
     "href": "vignettes/unit-conversions.html",
-    "title": "Unit conversions",
+    "title": "Converting to US customary units",
     "section": "",
     "text": "Conversions between SI (International System) units (i.e. meters, grams, liters) and US customary units (i.e. feet, pounds, gallons) are not included as functions in this package. This is a deliberate pedagogical choice. The data is designed to be universally inclusive with SI units used by the majority of the world. Users who work with US customary units should convert them on their own.\nThis guide provides examples for making these different conversions, since not all of the variables involve straightforward multiplication.\nlibrary(dplyr)\nlibrary(qatarcars)",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Articles",
-      "Unit conversions"
+      "Converting to US customary units"
     ]
   },
   {
     "objectID": "vignettes/unit-conversions.html#distance-meters-feet",
     "href": "vignettes/unit-conversions.html#distance-meters-feet",
-    "title": "Unit conversions",
+    "title": "Converting to US customary units",
     "section": "Distance (meters ↔︎ feet)",
     "text": "Distance (meters ↔︎ feet)\nConversion factors\n\n1 foot = 0.3048 meters\n1 meter = 3.28084 feet\n\nDerivation\nA foot is officially defined as 0.3048 meters, so 1 meter = \\(\\frac{1}{0.3048}\\) = 3.28084 feet.\nExample\n\nqatarcars |&gt;\n  mutate(\n    length_ft = length / 0.3048,\n    width_ft = width / 0.3048,\n    height_ft = height / 0.3048\n  ) |&gt;\n  select(make, model, length, length_ft, width, width_ft, height, height_ft)\n#&gt; # A tibble: 105 × 8\n#&gt;    make     model          length length_ft width width_ft height height_ft\n#&gt;    &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;\n#&gt;  1 BMW      3 Series Sedan   4.71      15.5  1.83     5.99   1.44      4.72\n#&gt;  2 BMW      X1               4.50      14.8  1.84     6.05   1.64      5.39\n#&gt;  3 Audi     RS Q8            5.01      16.4  1.69     5.56   2.00      6.56\n#&gt;  4 Audi     RS3              4.54      14.9  1.85     6.07   1.41      4.63\n#&gt;  5 Audi     A3               4.46      14.6  1.96     6.43   1.42      4.65\n#&gt;  6 Mercedes Maybach          5.47      17.9  1.92     6.30   1.51      4.95\n#&gt;  7 Mercedes G-Wagon          4.61      15.1  1.98     6.51   1.97      6.46\n#&gt;  8 Mercedes EQS              5.22      17.1  1.93     6.32   1.51      4.96\n#&gt;  9 Mercedes GLA              4.41      14.5  1.83     6.02   1.61      5.29\n#&gt; 10 Mercedes GLB 200          4.63      15.2  4.63    15.2    1.66      5.44\n#&gt; # ℹ 95 more rows",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Articles",
-      "Unit conversions"
+      "Converting to US customary units"
     ]
   },
   {
     "objectID": "vignettes/unit-conversions.html#mass-kilograms-pounds",
     "href": "vignettes/unit-conversions.html#mass-kilograms-pounds",
-    "title": "Unit conversions",
+    "title": "Converting to US customary units",
     "section": "Mass (kilograms ↔︎ pounds)",
     "text": "Mass (kilograms ↔︎ pounds)\nConversion factors\n\n1 pound = 0.45359237 kilograms\n1 kilogram = 2.204623 pounds\n\nDerivation\nA pound is officially defined as 0.45359237 kilograms, so 1 kilogram = \\(\\frac{1}{0.45359237}\\) = 2.204623 pounds.\nExample\n\nqatarcars |&gt;\n  mutate(mass_lbs = mass / 0.45359237) |&gt;\n  select(make, model, mass, mass_lbs)\n#&gt; # A tibble: 105 × 4\n#&gt;    make     model           mass mass_lbs\n#&gt;    &lt;fct&gt;    &lt;fct&gt;          &lt;dbl&gt;    &lt;dbl&gt;\n#&gt;  1 BMW      3 Series Sedan  1653    3644.\n#&gt;  2 BMW      X1              1701    3750.\n#&gt;  3 Audi     RS Q8           2490    5490.\n#&gt;  4 Audi     RS3             1565    3450.\n#&gt;  5 Audi     A3              1325    2921.\n#&gt;  6 Mercedes Maybach         2376    5238.\n#&gt;  7 Mercedes G-Wagon         2588    5706.\n#&gt;  8 Mercedes EQS             2495    5501.\n#&gt;  9 Mercedes GLA             1565    3450.\n#&gt; 10 Mercedes GLB 200         1656    3651.\n#&gt; # ℹ 95 more rows",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Articles",
-      "Unit conversions"
+      "Converting to US customary units"
     ]
   },
   {
     "objectID": "vignettes/unit-conversions.html#volume-liters-cubic-feet",
     "href": "vignettes/unit-conversions.html#volume-liters-cubic-feet",
-    "title": "Unit conversions",
+    "title": "Converting to US customary units",
     "section": "Volume (liters ↔︎ cubic feet)",
     "text": "Volume (liters ↔︎ cubic feet)\nConversion factors\n\n1 liter = 0.03531467 cubic feet\n1 cubic foot = 28.31684 liters\n\nDerivation\n1 liter = 0.001 cubic meters, so 1 liter = \\(0.001 \\times \\left(\\frac{1}{0.3048}\\right)^3\\) = 0.03531467 cubic feet. In reverse, 1 cubic foot = \\(\\frac{1}{0.03531467}\\) = 28.31684 liters.\nExample\n\nqatarcars |&gt;\n  mutate(trunk_cuft = trunk * 0.001 * (1 / 0.3048)^3) |&gt;\n  select(make, model, trunk, trunk_cuft)\n#&gt; # A tibble: 105 × 4\n#&gt;    make     model          trunk trunk_cuft\n#&gt;    &lt;fct&gt;    &lt;fct&gt;          &lt;dbl&gt;      &lt;dbl&gt;\n#&gt;  1 BMW      3 Series Sedan    59       2.08\n#&gt;  2 BMW      X1               505      17.8 \n#&gt;  3 Audi     RS Q8            605      21.4 \n#&gt;  4 Audi     RS3              321      11.3 \n#&gt;  5 Audi     A3               425      15.0 \n#&gt;  6 Mercedes Maybach          500      17.7 \n#&gt;  7 Mercedes G-Wagon          480      17.0 \n#&gt;  8 Mercedes EQS              610      21.5 \n#&gt;  9 Mercedes GLA              435      15.4 \n#&gt; 10 Mercedes GLB 200          565      20.0 \n#&gt; # ℹ 95 more rows",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Articles",
-      "Unit conversions"
+      "Converting to US customary units"
     ]
   },
   {
     "objectID": "vignettes/unit-conversions.html#fuel-economy-l100km-mpg",
     "href": "vignettes/unit-conversions.html#fuel-economy-l100km-mpg",
-    "title": "Unit conversions",
+    "title": "Converting to US customary units",
     "section": "Fuel economy (L/100km ↔︎ MPG)",
     "text": "Fuel economy (L/100km ↔︎ MPG)\nConversion factors\n\n1 L/100km ≈ 235.215 / MPG\n1 MPG ≈ 235.215 / L/100km\n\n\n\n\n\n\n\nNote\n\n\n\nThese two units are inverted and can be counterintuitive! Higher MPG = lower L/100km.\nIn SI units, low economy values are good; in US customary units, high economy values are good. For instance, a car with 8 L/100km (≈29 MPG) is more efficient than one with 12 L/100km (≈20 MPG).\n\n\nDerivation\nA US gallon is officially defined as 3.785411784 liters, and 1 mile = \\(\\frac{0.3048 \\times 5280}{1000}\\) = 1.609344 kilometers.\n\\[\n\\begin{aligned}\n\\text{L/100km} &\\rightarrow \\text{MPG} \\\\\n&= \\frac{100 \\text{ km}}{\\text{L/100km}} \\times \\frac{1 \\text{ mile}}{1.609 \\text{ km}} \\times \\frac{3.785 \\text{ L}}{1 \\text{ gallon}}\\\\\n&= \\frac{100 \\times 3.785}{1.609 \\times \\text{L/100km}} \\times \\frac{\\text{ miles}}{\\text{ gallon}} \\\\\n&\\approx \\frac{235.215}{\\text{L/100km}} \\text{ MPG}\n\\end{aligned}\n\\]\nExample\n\neconomy_conversion_factor &lt;- 100 *\n  3.785411784 / # liters in a gallon\n  (0.3048 * 5280 / 1000) # kilometers in a mile\neconomy_conversion_factor\n#&gt; [1] 235.2146\n\nqatarcars |&gt;\n  mutate(economy_mpg = economy_conversion_factor / economy) |&gt;\n  select(make, model, economy, economy_mpg)\n#&gt; # A tibble: 105 × 4\n#&gt;    make     model          economy economy_mpg\n#&gt;    &lt;fct&gt;    &lt;fct&gt;            &lt;dbl&gt;       &lt;dbl&gt;\n#&gt;  1 BMW      3 Series Sedan     7.6        30.9\n#&gt;  2 BMW      X1                 6.6        35.6\n#&gt;  3 Audi     RS Q8             12.1        19.4\n#&gt;  4 Audi     RS3                8.7        27.0\n#&gt;  5 Audi     A3                 6.5        36.2\n#&gt;  6 Mercedes Maybach           13.3        17.7\n#&gt;  7 Mercedes G-Wagon           13.1        18.0\n#&gt;  8 Mercedes EQS               NA          NA  \n#&gt;  9 Mercedes GLA                5.6        42.0\n#&gt; 10 Mercedes GLB 200            7.5        31.4\n#&gt; # ℹ 95 more rows",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Articles",
-      "Unit conversions"
+      "Converting to US customary units"
     ]
   },
   {
     "objectID": "vignettes/unit-conversions.html#performance-0100-kmh-060-mph",
     "href": "vignettes/unit-conversions.html#performance-0100-kmh-060-mph",
-    "title": "Unit conversions",
+    "title": "Converting to US customary units",
     "section": "Performance (0–100 km/h ↔︎ 0–60 mph)",
     "text": "Performance (0–100 km/h ↔︎ 0–60 mph)\nConversion factors\n\n0–60 mph (s) ≈ 0–100 km/h (s) × 0.9656064\n0–100 km/h (s) ≈ 0–60 mph (s) / 0.9656064\n\n\n\n\n\n\n\nNote\n\n\n\nThis conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate. The estimate assumes constant acceleration (time proportional to target speed). Since 60 mph is reached before 100 km/h, the actual 0–60 time would be slightly faster than the scaled estimate.\n\n\nDerivation\n60 mph = \\(\\frac{0.3048 \\times 5280 \\times 60}{1000}\\) = 96.56064 km/h, so 60 mph is ≈96.56% of 100 km/h. Assuming constant acceleration, time scales proportionally to target speed, giving the conversion factor of 0.9656064.\nExample\n\nperformance_conversion_factor &lt;- 0.3048 * 5280 * 60 / 1000 / 100\n\nqatarcars |&gt;\n  mutate(performance_mph = performance * performance_conversion_factor) |&gt;\n  select(make, model, performance, performance_mph)\n#&gt; # A tibble: 105 × 4\n#&gt;    make     model          performance performance_mph\n#&gt;    &lt;fct&gt;    &lt;fct&gt;                &lt;dbl&gt;           &lt;dbl&gt;\n#&gt;  1 BMW      3 Series Sedan         4.3            4.15\n#&gt;  2 BMW      X1                     5.4            5.21\n#&gt;  3 Audi     RS Q8                  3.6            3.48\n#&gt;  4 Audi     RS3                    3.8            3.67\n#&gt;  5 Audi     A3                     6.7            6.47\n#&gt;  6 Mercedes Maybach                4.1            3.96\n#&gt;  7 Mercedes G-Wagon                4.3            4.15\n#&gt;  8 Mercedes EQS                    5.6            5.41\n#&gt;  9 Mercedes GLA                    6.8            6.57\n#&gt; 10 Mercedes GLB 200                9              8.69\n#&gt; # ℹ 95 more rows",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Articles",
-      "Unit conversions"
+      "Converting to US customary units"
     ]
   },
   {
     "objectID": "vignettes/unit-conversions.html#automatic-conversion-with-units",
     "href": "vignettes/unit-conversions.html#automatic-conversion-with-units",
-    "title": "Unit conversions",
+    "title": "Converting to US customary units",
     "section": "Automatic conversion with {units}",
     "text": "Automatic conversion with {units}\nAlternatively, you can use the {units} package to make these conversions:\n\nlibrary(units)\n\nqatarcars |&gt;\n  mutate(\n    length_ft = set_units(length, \"m\") |&gt; set_units(\"ft\"),\n    mass_lbs = set_units(mass, \"kg\") |&gt; set_units(\"lb\"),\n    trunk_cuft = set_units(trunk, \"L\") |&gt; set_units(\"ft^3\"),\n    economy_mpg = set_units(1 / (economy / 100), \"km/L\") |&gt; set_units(\"mi/gallon\")\n  ) |&gt;\n  select(make, model, length_ft, mass_lbs, trunk_cuft, economy_mpg)\n#&gt; # A tibble: 105 × 6\n#&gt;    make     model          length_ft mass_lbs trunk_cuft economy_mpg\n#&gt;    &lt;fct&gt;    &lt;fct&gt;               [ft]     [lb]     [ft^3] [mi/gallon]\n#&gt;  1 BMW      3 Series Sedan      15.5    3644.       2.08        30.9\n#&gt;  2 BMW      X1                  14.8    3750.      17.8         35.6\n#&gt;  3 Audi     RS Q8               16.4    5490.      21.4         19.4\n#&gt;  4 Audi     RS3                 14.9    3450.      11.3         27.0\n#&gt;  5 Audi     A3                  14.6    2921.      15.0         36.2\n#&gt;  6 Mercedes Maybach             17.9    5238.      17.7         17.7\n#&gt;  7 Mercedes G-Wagon             15.1    5706.      17.0         18.0\n#&gt;  8 Mercedes EQS                 17.1    5501.      21.5         NA  \n#&gt;  9 Mercedes GLA                 14.5    3450.      15.4         42.0\n#&gt; 10 Mercedes GLB 200             15.2    3651.      20.0         31.4\n#&gt; # ℹ 95 more rows\n\n\n\n\n\n\n\nTip\n\n\n\n{units} stores unit-specific metadata in the converted columns. Use drop_units() to convert these columns back to numeric values:\nqatarcars |&gt;\n  mutate(\n    length_ft = set_units(length, \"m\") |&gt; set_units(\"ft\") |&gt; drop_units()\n  )",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Articles",
-      "Unit conversions"
+      "Converting to US customary units"
     ]
   },
   {
