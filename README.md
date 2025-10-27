@@ -229,23 +229,26 @@ variables are straightforward:
 - 1 liter = 0.03531467 cubic feet
 - 1 cubic foot = 28.31684 liters or $\frac{1}{0.03531467}$
 
-*Note*: 1 liter = 0.001 cubic meters, so in cubic feet, 1 liter = =
-0.03531467
+*Note*: 1 liter = 0.001 cubic meters, so in cubic feet, 1 liter =
+$0.001 \times \left(\frac{1}{0.3048}\right)^3$ = 0.03531467
 
 **Fuel economy (L/100km ↔ MPG)**
 
 - 1 MPG = $\frac{235.215}{\text{L/100km}}$
 - 1 L/100km = $\frac{235.215}{\text{MPG}}$
 
-*Note*: These are inverted! Higher MPG = lower L/100km. In SI units, low
-`economy` values are good; in US customary units, high `economy` values
-are good.
+> [!NOTE]
+>
+> These are inverted! Higher MPG = lower L/100km. In SI units, low
+> `economy` values are good; in US customary units, high `economy`
+> values are good.
 
-*Derivation* (using rounded values; exact values used in code):
+(these are rounded values; you should use more exact values in your
+code):
 
 - 1 US gallon = 231 cubic inches = 3.785411784 liters ([official
   standard](https://en.wikipedia.org/wiki/Gallon#US_gallon))
-- 1 mile = 1.609344 kilometers, or
+- 1 mile = 1.609344 kilometers, or $\frac{0.3048 \times 5280}{1000}$
 
 $$
 \begin{aligned}
@@ -266,8 +269,8 @@ acceleration (i.e. time is proportional to target speed).
 60 mph = 96.56064 km/h ($\frac{0.3048 \times 5280 \times 60}{1000}$), so
 60 mph is ≈96.56% of 100 km/h. Thus:
 
-- 0–60 mph (s) = 0.9656064 × 0–100 km/h (s)
-- 0–100 km/h (s) = 0–60 mph (s) / 0.9656064
+- 0–60 mph (s) = $\text{0–100 km/h (s)} \times 0.9656064$
+- 0–100 km/h (s) = $\frac{\text{0–60 mph (s)}}{0.9656064}$
 
 ``` r
 economy_conversion_factor <- 100 *
@@ -299,7 +302,7 @@ qatarcars |>
 #> # ℹ 95 more rows
 ```
 
-Another benefit of not including built-in conversion functions
+Another benefit of not including built-in conversion functions like
 `m_to_ft()` is that this data can be used to teach learners how to write
 R functions:
 
