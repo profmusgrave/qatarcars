@@ -205,6 +205,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">qatarcars</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./man/unit_conversion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">unit_conversion</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -253,8 +259,21 @@ ul.task-list li input[type="checkbox"] {
 <li>Updated canonical URL to original .dta file to <a href="https://qatarcars.georgetown.domains/qatarcars.dta" class="uri">https://qatarcars.georgetown.domains/qatarcars.dta</a></li>
 <li>Added reference/citation information to DESCRIPTION and inst/CITATION</li>
 <li>Fix badges in README</li>
-<li>Add functions for converting from QAR to USD and EUR: <code>qar_to_usd()</code>, <code>qar_to_eur()</code>, <code>usd_to_qar()</code>, <code>usd_to_eur()</code>, <code>eur_to_qar()</code>, and <code>eur_to_usd()</code></li>
-<li>Add Qatari maroon color as <code>qatar_maroon</code></li>
+<li>Added functions for converting from QAR to USD and EUR:
+<ul>
+<li>From QAR: <code>qar_to_usd()</code> and <code>qar_to_eur()</code></li>
+<li>From USD: <code>usd_to_qar()</code> and <code>usd_to_eur()</code></li>
+<li>From EUR: <code>eur_to_qar()</code> and <code>eur_to_usd()</code></li>
+</ul></li>
+<li>Added functions for converting between SI and US customary units:
+<ul>
+<li>Distance: <code>m_to_ft()</code> and <code>ft_to_m()</code></li>
+<li>Mass: <code>kg_to_lbs()</code> and <code>lbs_to_kg()</code></li>
+<li>Volume: <code>l_to_cuft()</code> and <code>cuft_to_l()</code></li>
+<li>Economy: <code>lp100km_to_mpg()</code> and <code>mpg_to_lp100km()</code></li>
+<li>Performance: <code>kmh100_to_mph60()</code> and <code>mph60_to_kmh100()</code></li>
+</ul></li>
+<li>Added Qatari maroon color as <code>qatar_maroon</code></li>
 </ul>
 </section>
 <section id="qatarcars-1.0.0" class="level1">

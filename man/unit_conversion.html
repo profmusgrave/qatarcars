@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>qatar_maroon – qatarcars</title>
+<title>unit_conversion – qatarcars</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,7 +100,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
@@ -162,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../man/currency_conversion.html">Reference</a></li><li class="breadcrumb-item"><a href="../man/qatar_maroon.html">qatar_maroon</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../man/currency_conversion.html">Reference</a></li><li class="breadcrumb-item"><a href="../man/unit_conversion.html">unit_conversion</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -214,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../man/qatar_maroon.html" class="sidebar-item-text sidebar-link active">
+  <a href="../man/qatar_maroon.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">qatar_maroon</span></a>
   </div>
 </li>
@@ -226,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../man/unit_conversion.html" class="sidebar-item-text sidebar-link">
+  <a href="../man/unit_conversion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">unit_conversion</span></a>
   </div>
 </li>
@@ -259,52 +284,300 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#qatar-maroon-color" id="toc-qatar-maroon-color" class="nav-link active" data-scroll-target="#qatar-maroon-color">Qatar maroon color</a>
+<a href="#convert-between-si-and-imperial-units" id="toc-convert-between-si-and-imperial-units" class="nav-link active" data-scroll-target="#convert-between-si-and-imperial-units">Convert between SI and imperial units</a>
   <ul class="collapse">
 <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
-  <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format">Format</a></li>
-  <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">Source</a></li>
+  <li><a href="#arguments" id="toc-arguments" class="nav-link" data-scroll-target="#arguments">Arguments</a></li>
+  <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details">Details</a></li>
+  <li><a href="#value" id="toc-value" class="nav-link" data-scroll-target="#value">Value</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../man/currency_conversion.html">Reference</a></li><li class="breadcrumb-item"><a href="../man/qatar_maroon.html">qatar_maroon</a></li></ol></nav></header><section id="qatar-maroon-color" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="qatar-maroon-color">Qatar maroon color</h2>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../man/currency_conversion.html">Reference</a></li><li class="breadcrumb-item"><a href="../man/unit_conversion.html">unit_conversion</a></li></ol></nav></header><section id="convert-between-si-and-imperial-units" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="convert-between-si-and-imperial-units">Convert between SI and imperial units</h2>
 <section id="description" class="level3"><h3 class="anchored" data-anchor-id="description">Description</h3>
-<p>The official colors of the Qatari flag are white and Pantone 1955 C, or "Qatar maroon." The hex representation of this color is <code style="white-space: pre;">#8A1538</code>.</p>
+<p>Functions to convert between SI and imperial units for various measurements in the <code>qatarcars</code> dataset.</p>
 </section><section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
-<pre><code class="language-R">qatar_maroon
+<pre><code class="language-R">m_to_ft(meters)
+
+ft_to_m(feet)
+
+kg_to_lbs(kg)
+
+lbs_to_kg(lbs)
+
+l_to_cuft(liters)
+
+cuft_to_l(cubic_feet)
+
+lp100km_to_mpg(lp100km)
+
+mpg_to_lp100km(mpg)
+
+kmh100_to_mph60(kmh_time)
+
+mph60_to_kmh100(mph_time)
 </code></pre>
-</section><section id="format" class="level3"><h3 class="anchored" data-anchor-id="format">Format</h3>
-<p>A character string containing a hex color code.</p>
-</section><section id="source" class="level3"><h3 class="anchored" data-anchor-id="source">Source</h3>
-<p><a href="https://en.wikipedia.org/wiki/Flag_of_Qatar">https://en.wikipedia.org/wiki/Flag_of_Qatar</a></p>
+</section><section id="arguments" class="level3"><h3 class="anchored" data-anchor-id="arguments">Arguments</h3>
+<table role="presentation">
+<tbody><tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="meters">meters</code>
+</td>
+<td>
+numeric vector of values in meters
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="feet">feet</code>
+</td>
+<td>
+numeric vector of values in feet
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="kg">kg</code>
+</td>
+<td>
+numeric vector of values in kilograms
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="lbs">lbs</code>
+</td>
+<td>
+numeric vector of values in pounds
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="liters">liters</code>
+</td>
+<td>
+numeric vector of values in liters
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="cubic_feet">cubic_feet</code>
+</td>
+<td>
+numeric vector of values in cubic feet
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="lp100km">lp100km</code>
+</td>
+<td>
+numeric vector of fuel economy in liters per 100 km
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="mpg">mpg</code>
+</td>
+<td>
+numeric vector of fuel economy in miles per gallon
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="kmh_time">kmh_time</code>
+</td>
+<td>
+numeric vector of 0-100 km/h acceleration time in seconds
+</td>
+</tr>
+<tr>
+<td style="white-space: collapse; font-family: monospace; vertical-align: top">
+<code id="mph_time">mph_time</code>
+</td>
+<td>
+numeric vector of 0-60 mph acceleration time in seconds
+</td>
+</tr>
+</tbody></table></section><section id="details" class="level3"><h3 class="anchored" data-anchor-id="details">Details</h3>
+<h4 class="anchored">
+Conversion factors
+</h4>
+<p>The National Institute of Standards and Technology in the United States and other international legal standards legally define different imperial and US measures as SI (International System) units (i.e.&nbsp;meters, grams, liters).</p>
+<p><strong>Distance (meters ↔︎ feet)</strong></p>
+<ul>
+<li>
+<p>1 foot = 0.3048 meters (<a href="https://en.wikipedia.org/wiki/Foot_(unit)">official standard</a>)</p>
+</li>
+<li>
+<p>1 meter = 3.28084 feet, or <span class="math inline">\(\frac{1}{0.3048}\)</span></p>
+</li>
+</ul>
+<p><strong>Mass (kilograms ↔︎ pounds)</strong></p>
+<ul>
+<li>
+<p>1 pound = 0.45359237 kilograms (<a href="https://en.wikipedia.org/wiki/International_yard_and_pound">official standard</a>)</p>
+</li>
+<li>
+<p>1 kilogram = 2.204623 pounds, or <span class="math inline">\(\frac{1}{0.45359237}\)</span></p>
+</li>
+</ul>
+<p><strong>Volume (liters ↔︎ cubic feet)</strong></p>
+<ul>
+<li>
+<p>1 liter = 0.03531467 cubic feet</p>
+</li>
+<li>
+<p>1 cubic foot = 28.31684 liters or <span class="math inline">\(\frac{1}{0.03531467}\)</span></p>
+</li>
+</ul>
+<p><em>Note</em>: 1 liter = 0.001 cubic meters, so in cubic feet, 1 liter = <span class="math inline">\(0.001 \times \left(\frac{1}{0.3048}\right)^3\)</span> = 0.03531467</p>
+<p><strong>Fuel economy (L/100km ↔︎ MPG)</strong></p>
+<ul>
+<li>
+<p>1 MPG = <span class="math inline">\(\frac{235.215}{\text{L/100km}}\)</span></p>
+</li>
+<li>
+<p>1 L/100km = <span class="math inline">\(\frac{235.215}{\text{MPG}}\)</span></p>
+</li>
+</ul>
+<p><em>Derivation</em> (using rounded values; exact values used in code):</p>
+<ul>
+<li>
+<p>1 US gallon = 231 cubic inches = 3.785411784 liters (<a href="https://en.wikipedia.org/wiki/Gallon#US_gallon">official standard</a>)</p>
+</li>
+<li>
+<p>1 mile = 1.609344 kilometers, or <span class="math inline">\(\frac{0.3048 \times 5280}{1000}\)</span></p>
+</li>
+</ul>
+<p style="text-align: center;">
+<code class="reqn">
+<span class="math display">\[\begin{aligned}
+  \text{L/100km} &amp;amp;\rightarrow \text{MPG} \\
+  &amp;amp;= \frac{100 \text{ km}}{\text{L/100km}} \times \frac{1 \text{ mile}}{1.609 \text{ km}} \times \frac{3.785 \text{ L}}{1 \text{ gallon}}\\
+  &amp;amp;= \frac{100 \times 3.785}{1.609 \times \text{L/100km}} \times \frac{\text{ miles}}{\text{ gallon}} \\
+  &amp;amp;\approx \frac{235.215}{\text{L/100km}} \text{ MPG}
+  \end{aligned}\]</span>
+</code></p><p></p><p></p>
+<p><strong>Performance (0–100 km/h ↔︎ 0–60 mph)</strong></p>
+<p>This conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate.</p>
+<p>For a comparable estimate for users who work with US-based measurements, we assume constant acceleration (i.e.&nbsp;time is proportional to target speed).</p>
+<p>60 mph = 96.56064 km/h (<span class="math inline">\(\frac{0.3048 \times 5280 \times 60}{1000}\)</span>), so 60 mph is ≈96.56% of 100 km/h. Thus:</p>
+<ul>
+<li>
+<p>0–60 mph (s) = 0.9656064 × 0–100 km/h (s)</p>
+</li>
+<li>
+<p>0–100 km/h (s) = 0–60 mph (s) / 0.9656064</p>
+</li>
+</ul></section><section id="value" class="level3"><h3 class="anchored" data-anchor-id="value">Value</h3>
+<p>Numeric vector of converted values</p>
 </section><section id="examples" class="level3"><h3 class="anchored" data-anchor-id="examples">Examples</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://profmusgrave.github.io/qatarcars/">"qatarcars"</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">qatar_maroon</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="co"># Distance conversions</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">m_to_ft</a></span><span class="op">(</span><span class="fl">4.5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "#8A1538"</code></pre>
+<pre><code>[1] 14.76378</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">length</span>, breaks <span class="op">=</span> <span class="fl">15</span>, col <span class="op">=</span> <span class="va">qatar_maroon</span>, border <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="qatar_maroon_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">ft_to_m</a></span><span class="op">(</span><span class="fl">14.76</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.498848</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Mass conversions</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kg_to_lbs</a></span><span class="op">(</span><span class="fl">1500</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3306.934</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org">"ggplot2"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qatarcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">15</span>, fill <span class="op">=</span> <span class="va">qatar_maroon</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lbs_to_kg</a></span><span class="op">(</span><span class="fl">3307</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1500.03</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Volume conversions</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">l_to_cuft</a></span><span class="op">(</span><span class="fl">500</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 17.65733</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">cuft_to_l</a></span><span class="op">(</span><span class="fl">17.66</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 500.0755</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Fuel economy conversions</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lp100km_to_mpg</a></span><span class="op">(</span><span class="fl">8.5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 27.6723</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">mpg_to_lp100km</a></span><span class="op">(</span><span class="fl">27.67</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.500708</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Performance conversions</span></span>
+<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kmh100_to_mph60</a></span><span class="op">(</span><span class="fl">6.5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.276442</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">mph60_to_kmh100</a></span><span class="op">(</span><span class="fl">5.85</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.058369</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span><span class="op">$</span><span class="va">length_ft</span> <span class="op">&lt;-</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">m_to_ft</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">length</span><span class="op">)</span></span>
+<span><span class="va">qatarcars</span><span class="op">$</span><span class="va">economy_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lp100km_to_mpg</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">economy</span><span class="op">)</span></span>
+<span><span class="va">qatarcars</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"origin"</span>, <span class="st">"make"</span>, <span class="st">"model"</span>, <span class="st">"length"</span>, <span class="st">"length_ft"</span>, <span class="st">"economy"</span>, <span class="st">"economy_mpg"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 105 × 7
+   origin  make     model          length length_ft economy economy_mpg
+   &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Germany BMW      3 Series Sedan   4.71      15.5     7.6        30.9
+ 2 Germany BMW      X1               4.50      14.8     6.6        35.6
+ 3 Germany Audi     RS Q8            5.01      16.4    12.1        19.4
+ 4 Germany Audi     RS3              4.54      14.9     8.7        27.0
+ 5 Germany Audi     A3               4.46      14.6     6.5        36.2
+ 6 Germany Mercedes Maybach          5.47      17.9    13.3        17.7
+ 7 Germany Mercedes G-Wagon          4.61      15.1    13.1        18.0
+ 8 Germany Mercedes EQS              5.22      17.1    NA          NA  
+ 9 Germany Mercedes GLA              4.41      14.5     5.6        42.0
+10 Germany Mercedes GLB 200          4.63      15.2     7.5        31.4
+# ℹ 95 more rows</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Labels are updated automatically</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">length_ft</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> num [1:105] 15.5 14.8 16.4 14.9 14.6 ...
+ - attr(*, "label")= chr "Length (ft)"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">qatarcars</span><span class="op">$</span><span class="va">economy_mpg</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> num [1:105] 30.9 35.6 19.4 27 36.2 ...
+ - attr(*, "label")= chr "Fuel Economy (mpg)"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">"dplyr"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>      length_ft <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">m_to_ft</a></span><span class="op">(</span><span class="va">length</span><span class="op">)</span>,</span>
+<span>      economy_mpg <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lp100km_to_mpg</a></span><span class="op">(</span><span class="va">economy</span><span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">origin</span>, <span class="va">make</span>, <span class="va">model</span>, <span class="va">length</span>, <span class="va">length_ft</span>, <span class="va">economy</span>, <span class="va">economy_mpg</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="qatar_maroon_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 105 × 7
+   origin  make     model          length length_ft economy economy_mpg
+   &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Germany BMW      3 Series Sedan   4.71      15.5     7.6        30.9
+ 2 Germany BMW      X1               4.50      14.8     6.6        35.6
+ 3 Germany Audi     RS Q8            5.01      16.4    12.1        19.4
+ 4 Germany Audi     RS3              4.54      14.9     8.7        27.0
+ 5 Germany Audi     A3               4.46      14.6     6.5        36.2
+ 6 Germany Mercedes Maybach          5.47      17.9    13.3        17.7
+ 7 Germany Mercedes G-Wagon          4.61      15.1    13.1        18.0
+ 8 Germany Mercedes EQS              5.22      17.1    NA          NA  
+ 9 Germany Mercedes GLA              4.41      14.5     5.6        42.0
+10 Germany Mercedes GLB 200          4.63      15.2     7.5        31.4
+# ℹ 95 more rows</code></pre>
 </div>
 </div>
 

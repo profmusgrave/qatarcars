@@ -224,6 +224,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">qatarcars</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./man/unit_conversion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">unit_conversion</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item">
@@ -262,7 +268,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
   <ul class="collapse">
 <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
-  <li><a href="#currency-conversion" id="toc-currency-conversion" class="nav-link" data-scroll-target="#currency-conversion">Currency conversion</a></li>
+  <li><a href="#currency-conversions" id="toc-currency-conversions" class="nav-link" data-scroll-target="#currency-conversions">Currency conversions</a></li>
+  <li><a href="#unit-conversions" id="toc-unit-conversions" class="nav-link" data-scroll-target="#unit-conversions">Unit conversions</a></li>
   <li><a href="#color" id="toc-color" class="nav-link" data-scroll-target="#color">Color</a></li>
   <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels">Labels</a></li>
   </ul>
@@ -295,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <code>economy</code>: Fuel economy of the car (in liters per 100 km)</li>
 <li>
-<code>horsepower</code>: Car horsepower.</li>
+<code>horsepower</code>: Car horsepower</li>
 <li>
 <code>price</code>: Price of the car in 2025 Qatari riyals</li>
 <li>
@@ -381,21 +388,23 @@ Tip
 </div>
 </div>
 <p>See <code><a href="https:/profmusgrave.github.io/qatarcars/man/qatarcars.html">?qatarcars</a></code> for data documentation within R.</p>
-</section><section id="currency-conversion" class="level3"><h3 class="anchored" data-anchor-id="currency-conversion">Currency conversion</h3>
+</section><section id="currency-conversions" class="level3"><h3 class="anchored" data-anchor-id="currency-conversions">Currency conversions</h3>
 <p>Prices are stored as Qatari Riyals (QAR). At the time of data collection in January 2025, the exchange rates between QAR and US Dollars and Euros were:</p>
 <ul>
 <li>1 USD = 3.64 QAR</li>
 <li>1 EUR = 4.15 QAR</li>
 </ul>
 <p>For convenience, this package includes functions for converting between these three currencies based on January 2025 exchange rates:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_usd</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_eur</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">usd_to_qar</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">usd_to_eur</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">eur_to_qar</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">eur_to_usd</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>From QAR: <code><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_usd()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_eur()</a></code>
+</li>
+<li>From USD: <code><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">usd_to_qar()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">usd_to_eur()</a></code>
+</li>
+<li>From EUR: <code><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">eur_to_qar()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">eur_to_usd()</a></code>
+</li>
+</ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">qatarcars</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
@@ -416,6 +425,46 @@ Tip
 <span><span class="co">#&gt;  8 Germany Mercedes EQS             564500   136024.   155082.</span></span>
 <span><span class="co">#&gt;  9 Germany Mercedes GLA             209500    50482.    57555.</span></span>
 <span><span class="co">#&gt; 10 Germany Mercedes GLB 200         168997    40722.    46428.</span></span>
+<span><span class="co">#&gt; # ℹ 95 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="unit-conversions" class="level3"><h3 class="anchored" data-anchor-id="unit-conversions">Unit conversions</h3>
+<p>Other helper functions are included to easily switch between SI (International System) units (i.e.&nbsp;meters, grams, liters) and US customary units (i.e.&nbsp;feet, pounds, gallons)</p>
+<ul>
+<li>Meters ↔︎ feet for length, width, and height: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">m_to_ft()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">ft_to_m()</a></code>
+</li>
+<li>Kilograms ↔︎ pounds for mass: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kg_to_lbs()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lbs_to_kg()</a></code>
+</li>
+<li>Liters ↔︎ cubic feet for trunk volume: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">l_to_cuft()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">cuft_to_l()</a></code>
+</li>
+<li>Liters/100km ↔︎ miles per gallon for fuel economy: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lp100km_to_mpg()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">mpg_to_lp100km()</a></code>
+</li>
+<li>0–100 km/h ↔︎ 0–60 mph for performance: <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kmh100_to_mph60()</a></code> and <code><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">mph60_to_kmh100()</a></code>
+<ul>
+<li>This conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate. For a comparable estimate, we assume constant acceleration (i.e.&nbsp;time is proportional to target speed).</li>
+<li>Since 60 mph ≈ 96.56 km/h, we scale the km/h time down by ≈96.56% to convert to the mph time</li>
+</ul>
+</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    length_ft <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">m_to_ft</a></span><span class="op">(</span><span class="va">length</span><span class="op">)</span>,</span>
+<span>    economy_mpg <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">lp100km_to_mpg</a></span><span class="op">(</span><span class="va">economy</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">origin</span>, <span class="va">make</span>, <span class="va">model</span>, <span class="va">length</span>, <span class="va">length_ft</span>, <span class="va">economy</span>, <span class="va">economy_mpg</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 105 × 7</span></span>
+<span><span class="co">#&gt;    origin  make     model          length length_ft economy economy_mpg</span></span>
+<span><span class="co">#&gt;    &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Germany BMW      3 Series Sedan   4.71      15.5     7.6        30.9</span></span>
+<span><span class="co">#&gt;  2 Germany BMW      X1               4.50      14.8     6.6        35.6</span></span>
+<span><span class="co">#&gt;  3 Germany Audi     RS Q8            5.01      16.4    12.1        19.4</span></span>
+<span><span class="co">#&gt;  4 Germany Audi     RS3              4.54      14.9     8.7        27.0</span></span>
+<span><span class="co">#&gt;  5 Germany Audi     A3               4.46      14.6     6.5        36.2</span></span>
+<span><span class="co">#&gt;  6 Germany Mercedes Maybach          5.47      17.9    13.3        17.7</span></span>
+<span><span class="co">#&gt;  7 Germany Mercedes G-Wagon          4.61      15.1    13.1        18.0</span></span>
+<span><span class="co">#&gt;  8 Germany Mercedes EQS              5.22      17.1    NA          NA  </span></span>
+<span><span class="co">#&gt;  9 Germany Mercedes GLA              4.41      14.5     5.6        42.0</span></span>
+<span><span class="co">#&gt; 10 Germany Mercedes GLB 200          4.63      15.2     7.5        31.4</span></span>
 <span><span class="co">#&gt; # ℹ 95 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="color" class="level3"><h3 class="anchored" data-anchor-id="color">Color</h3>
@@ -455,7 +504,7 @@ Tip
 </div>
 </div>
 </div>
-<p>The various currency conversion functions also update the labels:</p>
+<p>The various conversion functions also update the labels:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>price_eur <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_eur</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -499,8 +548,11 @@ Tip
 <p>Or in dollars:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">qatarcars</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>price_usd <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_usd</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance</span>, y <span class="op">=</span> <span class="va">price_usd</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    price_usd <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/currency_conversion.html">qar_to_usd</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,</span>
+<span>    performance_mph <span class="op">=</span> <span class="fu"><a href="https:/profmusgrave.github.io/qatarcars/man/unit_conversion.html">kmh100_to_mph60</a></span><span class="op">(</span><span class="va">performance</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">performance_mph</span>, y <span class="op">=</span> <span class="va">price_usd</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_currency.html">label_currency</a></span><span class="op">(</span>prefix <span class="op">=</span> <span class="st">"$"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
