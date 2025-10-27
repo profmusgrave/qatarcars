@@ -39,7 +39,7 @@
     "href": "NEWS.html",
     "title": "qatarcars (development version)",
     "section": "",
-    "text": "qatarcars (development version)\n\nMade some minor corrections to the data based on reviewer feedback (dropped one BMW, reclassified eight cars, and added six new cars)\nUpdated canonical URL to original .dta file to https://qatarcars.georgetown.domains/qatarcars.dta\nAdded reference/citation information to DESCRIPTION and inst/CITATION\nFix badges in README\nAdded functions for converting from QAR to USD and EUR:\n\nFrom QAR: qar_to_usd() and qar_to_eur()\nFrom USD: usd_to_qar() and usd_to_eur()\nFrom EUR: eur_to_qar() and eur_to_usd()\n\nAdded documentation to the README on converting between SI and US customary units:\nAdded Qatari maroon color as qatar_maroon\n\n\n\nqatarcars 1.0.0\n\nInitial CRAN submission.",
+    "text": "qatarcars (development version)\n\nMade some minor corrections to the data based on reviewer feedback (dropped one BMW, reclassified eight cars, and added six new cars)\nUpdated canonical URL to original .dta file to https://qatarcars.georgetown.domains/qatarcars.dta\nAdded reference/citation information to DESCRIPTION and inst/CITATION\nFix badges in README\nAdded functions for converting from QAR to USD and EUR:\n\nFrom QAR: qar_to_usd() and qar_to_eur()\nFrom USD: usd_to_qar() and usd_to_eur()\nFrom EUR: eur_to_qar() and eur_to_usd()\n\nAdded documentation to the README on converting between SI and US customary units\nAdded Qatari maroon color as qatar_maroon\n\n\n\nqatarcars 1.0.0\n\nInitial CRAN submission.",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "News"
