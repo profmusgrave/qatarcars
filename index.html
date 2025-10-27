@@ -467,7 +467,7 @@ Tip
 <li>1 cubic foot = 28.31684 liters or <span class="math inline">\(\frac{1}{0.03531467}\)</span>
 </li>
 </ul>
-<p><em>Note</em>: 1 liter = 0.001 cubic meters, so in cubic feet, 1 liter = = 0.03531467</p>
+<p><em>Note</em>: 1 liter = 0.001 cubic meters, so in cubic feet, 1 liter = <span class="math inline">\(0.001 \times \left(\frac{1}{0.3048}\right)^3\)</span> = 0.03531467</p>
 <p><strong>Fuel economy (L/100km ↔︎ MPG)</strong></p>
 <ul>
 <li>1 MPG = <span class="math inline">\(\frac{235.215}{\text{L/100km}}\)</span>
@@ -475,11 +475,24 @@ Tip
 <li>1 L/100km = <span class="math inline">\(\frac{235.215}{\text{MPG}}\)</span>
 </li>
 </ul>
-<p><em>Note</em>: These are inverted! Higher MPG = lower L/100km. In SI units, low <code>economy</code> values are good; in US customary units, high <code>economy</code> values are good.</p>
-<p><em>Derivation</em> (using rounded values; exact values used in code):</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These are inverted! Higher MPG = lower L/100km. In SI units, low <code>economy</code> values are good; in US customary units, high <code>economy</code> values are good.</p>
+</div>
+</div>
+<p>(these are rounded values; you should use more exact values in your code):</p>
 <ul>
 <li>1 US gallon = 231 cubic inches = 3.785411784 liters (<a href="https://en.wikipedia.org/wiki/Gallon#US_gallon">official standard</a>)</li>
-<li>1 mile = 1.609344 kilometers, or </li>
+<li>1 mile = 1.609344 kilometers, or <span class="math inline">\(\frac{0.3048 \times 5280}{1000}\)</span>
+</li>
 </ul>
 <p><span class="math display">\[
 \begin{aligned}
@@ -493,8 +506,10 @@ Tip
 <p>This conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate. For a comparable estimate, we assume constant acceleration (i.e.&nbsp;time is proportional to target speed).</p>
 <p>60 mph = 96.56064 km/h (<span class="math inline">\(\frac{0.3048 \times 5280 \times 60}{1000}\)</span>), so 60 mph is ≈96.56% of 100 km/h. Thus:</p>
 <ul>
-<li>0–60 mph (s) = 0.9656064 × 0–100 km/h (s)</li>
-<li>0–100 km/h (s) = 0–60 mph (s) / 0.9656064</li>
+<li>0–60 mph (s) = <span class="math inline">\(\text{0–100 km/h (s)} \times 0.9656064\)</span>
+</li>
+<li>0–100 km/h (s) = <span class="math inline">\(\frac{\text{0–60 mph (s)}}{0.9656064}\)</span>
+</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">economy_conversion_factor</span> <span class="op">&lt;-</span> <span class="fl">100</span> <span class="op">*</span></span>
@@ -525,7 +540,7 @@ Tip
 <span><span class="co">#&gt; 10 Merce… GLB …   4.63      15.2     7.5        31.4         9              8.69</span></span>
 <span><span class="co">#&gt; # ℹ 95 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Another benefit of not including built-in conversion functions <code>m_to_ft()</code> is that this data can be used to teach learners how to write R functions:</p>
+<p>Another benefit of not including built-in conversion functions like <code>m_to_ft()</code> is that this data can be used to teach learners how to write R functions:</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m_to_ft</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">meters</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">meters</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">/</span> <span class="fl">0.3048</span><span class="op">)</span></span>
