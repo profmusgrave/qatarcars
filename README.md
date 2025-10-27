@@ -36,7 +36,7 @@ variables as the `mtcars` dataset:
 - `seating`: Number of seats in the car
 - `trunk`: Capacity or volume of the trunk (in liters)
 - `economy`: Fuel economy of the car (in liters per 100 km)
-- `horsepower`: Car horsepower.
+- `horsepower`: Car horsepower
 - `price`: Price of the car in 2025 Qatari riyals
 - `mass`: Mass of the car (in kg)
 - `performance`: Time to accelerate from 0 to 100 km/h (in seconds)
@@ -159,7 +159,7 @@ qatarcars
 
 See `?qatarcars` for data documentation within R.
 
-### Currency conversion
+### Currency conversions
 
 Prices are stored as Qatari Riyals (QAR). At the time of data collection
 in January 2025, the exchange rates between QAR and US Dollars and Euros
@@ -171,14 +171,9 @@ were:
 For convenience, this package includes functions for converting between
 these three currencies based on January 2025 exchange rates:
 
-``` r
-qar_to_usd()
-qar_to_eur()
-usd_to_qar()
-usd_to_eur()
-eur_to_qar()
-eur_to_usd()
-```
+- From QAR: `qar_to_usd()` and `qar_to_eur()`
+- From USD: `usd_to_qar()` and `usd_to_eur()`
+- From EUR: `eur_to_qar()` and `eur_to_usd()`
 
 ``` r
 library(dplyr)
@@ -202,6 +197,50 @@ qatarcars |>
 #>  8 Germany Mercedes EQS             564500   136024.   155082.
 #>  9 Germany Mercedes GLA             209500    50482.    57555.
 #> 10 Germany Mercedes GLB 200         168997    40722.    46428.
+#> # ℹ 95 more rows
+```
+
+### Unit conversions
+
+Other helper functions are included to easily switch between SI
+(International System) units (i.e. meters, grams, liters) and US
+customary units (i.e. feet, pounds, gallons)
+
+- Meters ↔ feet for length, width, and height: `m_to_ft()` and
+  `ft_to_m()`
+- Kilograms ↔ pounds for mass: `kg_to_lbs()` and `lbs_to_kg()`
+- Liters ↔ cubic feet for trunk volume: `l_to_cuft()` and `cuft_to_l()`
+- Liters/100km ↔ miles per gallon for fuel economy: `lp100km_to_mpg()`
+  and `mpg_to_lp100km()`
+- 0–100 km/h ↔ 0–60 mph for performance: `kmh100_to_mph60()` and
+  `mph60_to_kmh100()`
+  - This conversion is only approximate because 100 km/h corresponds to
+    about 62 mph, not exactly 60 mph, and cars may not accelerate at a
+    constant rate. For a comparable estimate, we assume constant
+    acceleration (i.e. time is proportional to target speed).
+  - Since 60 mph ≈ 96.56 km/h, we scale the km/h time down by ≈96.56% to
+    convert to the mph time
+
+``` r
+qatarcars |>
+  mutate(
+    length_ft = m_to_ft(length),
+    economy_mpg = lp100km_to_mpg(economy)
+  ) |>
+  select(origin, make, model, length, length_ft, economy, economy_mpg)
+#> # A tibble: 105 × 7
+#>    origin  make     model          length length_ft economy economy_mpg
+#>    <fct>   <fct>    <fct>           <dbl>     <dbl>   <dbl>       <dbl>
+#>  1 Germany BMW      3 Series Sedan   4.71      15.5     7.6        30.9
+#>  2 Germany BMW      X1               4.50      14.8     6.6        35.6
+#>  3 Germany Audi     RS Q8            5.01      16.4    12.1        19.4
+#>  4 Germany Audi     RS3              4.54      14.9     8.7        27.0
+#>  5 Germany Audi     A3               4.46      14.6     6.5        36.2
+#>  6 Germany Mercedes Maybach          5.47      17.9    13.3        17.7
+#>  7 Germany Mercedes G-Wagon          4.61      15.1    13.1        18.0
+#>  8 Germany Mercedes EQS              5.22      17.1    NA          NA  
+#>  9 Germany Mercedes GLA              4.41      14.5     5.6        42.0
+#> 10 Germany Mercedes GLB 200          4.63      15.2     7.5        31.4
 #> # ℹ 95 more rows
 ```
 
@@ -251,7 +290,7 @@ ggplot(qatarcars, aes(x = economy)) +
 <img src="man/figures/README-plot-economy-histogram-1.png"
 style="width:80.0%" data-fig-align="center" />
 
-The various currency conversion functions also update the labels:
+The various conversion functions also update the labels:
 
 ``` r
 qatarcars |> 
@@ -295,8 +334,11 @@ Or in dollars:
 
 ``` r
 qatarcars |> 
-  mutate(price_usd = qar_to_usd(price)) |> 
-  ggplot(aes(x = performance, y = price_usd)) +
+  mutate(
+    price_usd = qar_to_usd(price),
+    performance_mph = kmh100_to_mph60(performance)
+  ) |>
+  ggplot(aes(x = performance_mph, y = price_usd)) +
   geom_smooth() +
   geom_point(aes(color = type)) +
   scale_y_log10(labels = scales::label_currency(prefix = "$"))

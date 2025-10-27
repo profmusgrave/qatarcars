@@ -103,7 +103,7 @@ Qatar Cars provides a more internationally-focused, modern cars-based demonstrat
 - `seating`: Number of seats in the car
 - `trunk`: Capacity or volume of the trunk (in liters)
 - `economy`: Fuel economy of the car (in liters per 100 km)
-- `horsepower`: Car horsepower.
+- `horsepower`: Car horsepower
 - `price`: Price of the car in 2025 Qatari riyals
 - `mass`: Mass of the car (in kg)
 - `performance`: Time to accelerate from 0 to 100 km/h (in seconds)
@@ -189,7 +189,7 @@ If you have [{tibble}](https://tibble.tidyverse.org/) installed (likely as part 
 
 See `?qatarcars` for data documentation within R.
 
-### Currency conversion
+### Currency conversions
 
 Prices are stored as Qatari Riyals (QAR). At the time of data collection in January 2025, the exchange rates between QAR and US Dollars and Euros were:
 
@@ -198,14 +198,9 @@ Prices are stored as Qatari Riyals (QAR). At the time of data collection in Janu
 
 For convenience, this package includes functions for converting between these three currencies based on January 2025 exchange rates:
 
-```{.r}
-qar_to_usd()
-qar_to_eur()
-usd_to_qar()
-usd_to_eur()
-eur_to_qar()
-eur_to_usd()
-```
+- From QAR: `qar_to_usd()` and `qar_to_eur()`
+- From USD: `usd_to_qar()` and `usd_to_eur()`
+- From EUR: `eur_to_qar()` and `eur_to_usd()`
 
 ```{r}
 #| label: convert-currency
@@ -220,6 +215,31 @@ qatarcars |>
   ) |>
   select(origin, make, model, starts_with("price"))
 ```
+
+### Unit conversions
+
+Other helper functions are included to easily switch between SI (International System) units (i.e. meters, grams, liters) and US customary units (i.e. feet, pounds, gallons)
+
+- Meters ↔ feet for length, width, and height: `m_to_ft()` and `ft_to_m()`
+- Kilograms ↔ pounds for mass: `kg_to_lbs()` and `lbs_to_kg()`
+- Liters ↔ cubic feet for trunk volume: `l_to_cuft()` and `cuft_to_l()`
+- Liters/100km ↔ miles per gallon for fuel economy: `lp100km_to_mpg()` and `mpg_to_lp100km()`
+- 0–100 km/h ↔ 0–60 mph for performance: `kmh100_to_mph60()` and `mph60_to_kmh100()`
+  - This conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate. For a comparable estimate, we assume constant acceleration (i.e. time is proportional to target speed).
+  - Since 60 mph ≈ 96.56 km/h, we scale the km/h time down by ≈96.56% to convert to the mph time
+
+```{r}
+#| label: convert-units
+#| warning: false
+#| message: false
+qatarcars |>
+  mutate(
+    length_ft = m_to_ft(length),
+    economy_mpg = lp100km_to_mpg(economy)
+  ) |>
+  select(origin, make, model, length, length_ft, economy, economy_mpg)
+```
+
 
 ### Color
 
@@ -264,7 +284,7 @@ ggplot(qatarcars, aes(x = economy)) +
   geom_histogram(binwidth = 1, fill = qatar_maroon, color = "white")
 ```
 
-The various currency conversion functions also update the labels:
+The various conversion functions also update the labels:
 
 ```{r}
 #| label: plot-price-eur
@@ -311,8 +331,11 @@ Or in dollars:
 #| message: false
 
 qatarcars |> 
-  mutate(price_usd = qar_to_usd(price)) |> 
-  ggplot(aes(x = performance, y = price_usd)) +
+  mutate(
+    price_usd = qar_to_usd(price),
+    performance_mph = kmh100_to_mph60(performance)
+  ) |>
+  ggplot(aes(x = performance_mph, y = price_usd)) +
   geom_smooth() +
   geom_point(aes(color = type)) +
   scale_y_log10(labels = scales::label_currency(prefix = "$"))

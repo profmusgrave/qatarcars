@@ -1,17 +1,3 @@
-#' Add a label attribute to an input value only if it already has a label attribute 
-#' 
-#' This is useful with the currency conversion functions since the `price`
-#' column in `qatarcars` has a label already ("Price (QAR)"), and if something
-#' like `qar_to_usd()` is used on it, that label carries over.
-#' 
-#' @keywords internal
-set_currency_label <- function(value, original, label) {
-  if (!is.null(attr(original, "label"))) {
-    attr(value, "label") <- label
-  }
-  value
-}
-
 #' Convert between QAR, USD, and EUR
 #'
 #' @description
@@ -59,40 +45,40 @@ NULL
 #' @export
 qar_to_usd <- function(qar) {
   out <- qar / 3.64
-  set_currency_label(out, qar, "Price (USD)")
+  set_label(out, qar, "Price (USD)")
 }
 
 #' @rdname currency_conversion
 #' @export
 qar_to_eur <- function(qar) {
   out <- qar / 4.15
-  set_currency_label(out, qar, "Price (EUR)")
+  set_label(out, qar, "Price (EUR)")
 }
 
 #' @rdname currency_conversion
 #' @export
 usd_to_qar <- function(usd) {
   out <- usd * 3.64
-  set_currency_label(out, usd, "Price (QAR)")
+  set_label(out, usd, "Price (QAR)")
 }
 
 #' @rdname currency_conversion
 #' @export
 usd_to_eur <- function(usd) {
   out <- usd * 3.64 / 4.15
-  set_currency_label(out, usd, "Price (EUR)")
+  set_label(out, usd, "Price (EUR)")
 }
 
 #' @rdname currency_conversion
 #' @export
 eur_to_qar <- function(eur) {
   out <- eur * 4.15
-  set_currency_label(out, eur, "Price (QAR)")
+  set_label(out, eur, "Price (QAR)")
 }
 
 #' @rdname currency_conversion
 #' @export
 eur_to_usd <- function(eur) {
   out <- eur * 4.15 / 3.64
-  set_currency_label(out, eur, "Price (USD)")
+  set_label(out, eur, "Price (USD)")
 }

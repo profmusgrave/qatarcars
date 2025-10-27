@@ -19,10 +19,11 @@ qatarcars_df <- haven::read_dta(here::here(
   ) |>
   mutate(across(where(is.character), as.factor)) |>
   as.data.frame() |>
-  # Get rid of dataset-level Stata metadata
+  # Get rid of dataset-level Stata metadata + fix spacing for performance label
   (\(x) {
     attributes(x)$label <- NULL
     attributes(x)$notes <- NULL
+    attr(x$performance, "label") <- "Time 0-100 km/h (s)"
     x
   })()
 
