@@ -1,9 +1,5 @@
 ---
-title: "Unit conversions"
-vignette: >
-  %\VignetteIndexEntry{unit-conversions}
-  %\VignetteEngine{quarto::html}
-  %\VignetteEncoding{UTF-8}
+title: "Converting to US customary units"
 knitr:
   opts_chunk:
     collapse: true
