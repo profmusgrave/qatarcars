@@ -202,49 +202,114 @@ qatarcars |>
 
 ### Unit conversions
 
-Other helper functions are included to easily switch between SI
-(International System) units (i.e. meters, grams, liters) and US
-customary units (i.e. feet, pounds, gallons)
+Conversions between SI (International System) units (i.e. meters, grams,
+liters) and US customary units (i.e. feet, pounds, gallons) are not
+included as functions. This is deliberate for pedagogical reasons. The
+data is designed to be universally inclusive with SI units used by the
+majority of the world. Users who work with US customary units can
+convert to them on their own.
 
-- Meters ↔ feet for length, width, and height: `m_to_ft()` and
-  `ft_to_m()`
-- Kilograms ↔ pounds for mass: `kg_to_lbs()` and `lbs_to_kg()`
-- Liters ↔ cubic feet for trunk volume: `l_to_cuft()` and `cuft_to_l()`
-- Liters/100km ↔ miles per gallon for fuel economy: `lp100km_to_mpg()`
-  and `mpg_to_lp100km()`
-  - **Note**: These are inverted! Higher MPG = lower L/100km. In SI
-    units, low `economy` values are good; in US customary units, high
-    `economy` values are good.
-- 0–100 km/h ↔ 0–60 mph for performance: `kmh100_to_mph60()` and
-  `mph60_to_kmh100()`
-  - This conversion is only approximate because 100 km/h corresponds to
-    about 62 mph, not exactly 60 mph, and cars may not accelerate at a
-    constant rate. For a comparable estimate, we assume constant
-    acceleration (i.e. time is proportional to target speed).
-  - Since 60 mph ≈ 96.56 km/h, we scale the km/h time down by ≈96.56% to
-    convert to the mph time
+Here’s a guide to making this conversions, since not all of the
+variables are straightforward:
+
+**Distance (meters ↔ feet)**
+
+- 1 foot = 0.3048 meters ([official
+  standard](https://en.wikipedia.org/wiki/Foot_(unit)))
+- 1 meter = 3.28084 feet, or $\frac{1}{0.3048}$
+
+**Mass (kilograms ↔ pounds)**
+
+- 1 pound = 0.45359237 kilograms ([official
+  standard](https://en.wikipedia.org/wiki/International_yard_and_pound))
+- 1 kilogram = 2.204623 pounds, or $\frac{1}{0.45359237}$
+
+**Volume (liters ↔ cubic feet)**
+
+- 1 liter = 0.03531467 cubic feet
+- 1 cubic foot = 28.31684 liters or $\frac{1}{0.03531467}$
+
+*Note*: 1 liter = 0.001 cubic meters, so in cubic feet, 1 liter = =
+0.03531467
+
+**Fuel economy (L/100km ↔ MPG)**
+
+- 1 MPG = $\frac{235.215}{\text{L/100km}}$
+- 1 L/100km = $\frac{235.215}{\text{MPG}}$
+
+*Note*: These are inverted! Higher MPG = lower L/100km. In SI units, low
+`economy` values are good; in US customary units, high `economy` values
+are good.
+
+*Derivation* (using rounded values; exact values used in code):
+
+- 1 US gallon = 231 cubic inches = 3.785411784 liters ([official
+  standard](https://en.wikipedia.org/wiki/Gallon#US_gallon))
+- 1 mile = 1.609344 kilometers, or
+
+$$
+\begin{aligned}
+\text{L/100km} &\rightarrow \text{MPG} \\
+&= \frac{100 \text{ km}}{\text{L/100km}} \times \frac{1 \text{ mile}}{1.609 \text{ km}} \times \frac{3.785 \text{ L}}{1 \text{ gallon}}\\
+&= \frac{100 \times 3.785}{1.609 \times \text{L/100km}} \times \frac{\text{ miles}}{\text{ gallon}} \\
+&\approx \frac{235.215}{\text{L/100km}} \text{ MPG}
+\end{aligned}
+$$
+
+**Performance (0–100 km/h ↔ 0–60 mph)**
+
+This conversion is only approximate because 100 km/h corresponds to
+about 62 mph, not exactly 60 mph, and cars may not accelerate at a
+constant rate. For a comparable estimate, we assume constant
+acceleration (i.e. time is proportional to target speed).
+
+60 mph = 96.56064 km/h ($\frac{0.3048 \times 5280 \times 60}{1000}$), so
+60 mph is ≈96.56% of 100 km/h. Thus:
+
+- 0–60 mph (s) = 0.9656064 × 0–100 km/h (s)
+- 0–100 km/h (s) = 0–60 mph (s) / 0.9656064
 
 ``` r
+economy_conversion_factor <- 100 *
+  3.785411784 / # liters in a gallon
+  (0.3048 * 5280 / 1000) # kilometers in a mile
+
+performance_conversion_factor <- 0.3048 * 5280 * 60 / 1000 / 100
+
 qatarcars |>
   mutate(
-    length_ft = m_to_ft(length),
-    economy_mpg = lp100km_to_mpg(economy)
+    length_ft = length / 0.3048,
+    economy_mpg = economy_conversion_factor / economy,
+    performance_mpg = performance * performance_conversion_factor
   ) |>
-  select(origin, make, model, length, length_ft, economy, economy_mpg)
-#> # A tibble: 105 × 7
-#>    origin  make     model          length length_ft economy economy_mpg
-#>    <fct>   <fct>    <fct>           <dbl>     <dbl>   <dbl>       <dbl>
-#>  1 Germany BMW      3 Series Sedan   4.71      15.5     7.6        30.9
-#>  2 Germany BMW      X1               4.50      14.8     6.6        35.6
-#>  3 Germany Audi     RS Q8            5.01      16.4    12.1        19.4
-#>  4 Germany Audi     RS3              4.54      14.9     8.7        27.0
-#>  5 Germany Audi     A3               4.46      14.6     6.5        36.2
-#>  6 Germany Mercedes Maybach          5.47      17.9    13.3        17.7
-#>  7 Germany Mercedes G-Wagon          4.61      15.1    13.1        18.0
-#>  8 Germany Mercedes EQS              5.22      17.1    NA          NA  
-#>  9 Germany Mercedes GLA              4.41      14.5     5.6        42.0
-#> 10 Germany Mercedes GLB 200          4.63      15.2     7.5        31.4
+  select(make, model, length, length_ft, economy, economy_mpg, performance, performance_mpg)
+#> # A tibble: 105 × 8
+#>    make   model length length_ft economy economy_mpg performance performance_mpg
+#>    <fct>  <fct>  <dbl>     <dbl>   <dbl>       <dbl>       <dbl>           <dbl>
+#>  1 BMW    3 Se…   4.71      15.5     7.6        30.9         4.3            4.15
+#>  2 BMW    X1      4.50      14.8     6.6        35.6         5.4            5.21
+#>  3 Audi   RS Q8   5.01      16.4    12.1        19.4         3.6            3.48
+#>  4 Audi   RS3     4.54      14.9     8.7        27.0         3.8            3.67
+#>  5 Audi   A3      4.46      14.6     6.5        36.2         6.7            6.47
+#>  6 Merce… Mayb…   5.47      17.9    13.3        17.7         4.1            3.96
+#>  7 Merce… G-Wa…   4.61      15.1    13.1        18.0         4.3            4.15
+#>  8 Merce… EQS     5.22      17.1    NA          NA           5.6            5.41
+#>  9 Merce… GLA     4.41      14.5     5.6        42.0         6.8            6.57
+#> 10 Merce… GLB …   4.63      15.2     7.5        31.4         9              8.69
 #> # ℹ 95 more rows
+```
+
+Another benefit of not including built-in conversion functions
+`m_to_ft()` is that this data can be used to teach learners how to write
+R functions:
+
+``` r
+m_to_ft <- function(meters) {
+  meters * (1 / 0.3048)
+}
+
+m_to_ft(100)
+#> [1] 328.084
 ```
 
 ### Color
@@ -325,15 +390,20 @@ This is reversed when looking at miles per gallon. In SI units, low
 are good:
 
 ``` r
+economy_conversion_factor <- 100 *
+  3.785411784 / # liters in a gallon
+  (0.3048 * 5280 / 1000) # kilometers in a mile
+
 qatarcars |> 
   mutate(
-    mass = kg_to_lbs(mass),
-    economy = lp100km_to_mpg(economy)
+    mass_lbs = mass / 0.45359237,
+    economy_mph = economy_conversion_factor / economy
   ) |> 
-  ggplot(aes(x = mass, y = economy)) +
+  ggplot(aes(x = mass_lbs, y = economy_mph)) +
   geom_point() +
   geom_smooth(method = "lm") +
-  scale_x_continuous(labels = scales::label_comma())
+  scale_x_continuous(labels = scales::label_comma()) +
+  labs(x = "Mass (lbs)", y = "Fuel Economy (mpg)")
 ```
 
 <img src="man/figures/README-plot-mass-economy-us-1.png"
@@ -358,12 +428,13 @@ Or in dollars:
 qatarcars |> 
   mutate(
     price_usd = qar_to_usd(price),
-    performance_mph = kmh100_to_mph60(performance)
+    performance_mph = performance * (0.3048 * 5280 * 60 / 1000 / 100)
   ) |>
   ggplot(aes(x = performance_mph, y = price_usd)) +
   geom_smooth() +
   geom_point(aes(color = type)) +
-  scale_y_log10(labels = scales::label_currency(prefix = "$"))
+  scale_y_log10(labels = scales::label_currency(prefix = "$")) +
+  labs(x = "Time 0-60 mph (s)")
 ```
 
 <img src="man/figures/README-plot-performance-price-usd-1.png"
