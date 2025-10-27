@@ -8,7 +8,7 @@
   - From QAR: `qar_to_usd()` and `qar_to_eur()`
   - From USD: `usd_to_qar()` and `usd_to_eur()`
   - From EUR: `eur_to_qar()` and `eur_to_usd()`
-- Added documentation to the README on converting between SI and US customary units:
+- Added documentation to the README on converting between SI and US customary units
 - Added Qatari maroon color as `qatar_maroon`
 
 # qatarcars 1.0.0
