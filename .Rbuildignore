@@ -14,3 +14,5 @@
 ^altdoc$
 ^_quarto$
 ^CRAN-SUBMISSION$
+^vignettes/\.quarto$
+^vignettes/*_files$

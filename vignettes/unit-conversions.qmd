@@ -1,0 +1,191 @@
+---
+title: "Unit conversions"
+vignette: >
+  %\VignetteIndexEntry{unit-conversions}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    warning: false
+    message: false
+---
+
+Conversions between SI (International System) units (i.e. meters, grams, liters) and US customary units (i.e. feet, pounds, gallons) are *not* included as functions in this package. **This is a deliberate pedagogical choice.** The data is designed to be universally inclusive with SI units used by the majority of the world. Users who work with US customary units should convert them on their own.
+
+This guide provides examples for making these different conversions, since not all of the variables involve straightforward multiplication.
+
+```{r}
+#| label: setup
+library(dplyr)
+library(qatarcars)
+```
+
+## Distance (meters ↔ feet)
+
+**Conversion factors**
+
+- 1 foot = 0.3048 meters 
+- 1 meter = 3.28084 feet
+
+**Derivation**
+
+A foot is [officially defined as 0.3048 meters](https://en.wikipedia.org/wiki/Foot_(unit)), so 1 meter = $\frac{1}{0.3048}$ = 3.28084 feet.
+
+**Example**
+
+```{r}
+#| label: example-distance
+
+qatarcars |>
+  mutate(
+    length_ft = length / 0.3048,
+    width_ft = width / 0.3048,
+    height_ft = height / 0.3048
+  ) |>
+  select(make, model, length, length_ft, width, width_ft, height, height_ft)
+```
+
+
+## Mass (kilograms ↔ pounds)
+
+**Conversion factors**
+
+- 1 pound = 0.45359237 kilograms
+- 1 kilogram = 2.204623 pounds
+
+**Derivation**
+
+A pound is [officially defined as 0.45359237 kilograms](https://en.wikipedia.org/wiki/International_yard_and_pound), so 1 kilogram = $\frac{1}{0.45359237}$ = 2.204623 pounds.
+
+**Example**
+
+```{r}
+#| label: example-mass
+
+qatarcars |>
+  mutate(mass_lbs = mass / 0.45359237) |>
+  select(make, model, mass, mass_lbs)
+```
+
+
+## Volume (liters ↔ cubic feet)
+
+**Conversion factors**
+
+- 1 liter = 0.03531467 cubic feet
+- 1 cubic foot = 28.31684 liters
+
+**Derivation**
+
+1 liter = 0.001 cubic meters, so 1 liter = $0.001 \times \left(\frac{1}{0.3048}\right)^3$ = 0.03531467 cubic feet. In reverse, 1 cubic foot = $\frac{1}{0.03531467}$ = 28.31684 liters.
+
+**Example**
+
+```{r}
+#| label: example-volume
+
+qatarcars |>
+  mutate(trunk_cuft = trunk * 0.001 * (1 / 0.3048)^3) |>
+  select(make, model, trunk, trunk_cuft)
+```
+
+## Fuel economy (L/100km ↔ MPG)
+
+**Conversion factors**
+
+- 1 L/100km ≈ 235.215 / MPG
+- 1 MPG ≈ 235.215 / L/100km
+
+::: {.callout-note}
+These two units are inverted and can be counterintuitive! **Higher MPG = lower L/100km.**
+
+In SI units, low `economy` values are good; in US customary units, high `economy` values are good. For instance, a car with 8 L/100km (≈29 MPG) is more efficient than one with 12 L/100km (≈20 MPG).
+:::
+
+**Derivation**
+
+A US gallon is [officially defined as 3.785411784 liters](https://en.wikipedia.org/wiki/Gallon#US_gallon), and 1 mile = $\frac{0.3048 \times 5280}{1000}$ = 1.609344 kilometers.
+
+$$
+\begin{aligned}
+\text{L/100km} &\rightarrow \text{MPG} \\
+&= \frac{100 \text{ km}}{\text{L/100km}} \times \frac{1 \text{ mile}}{1.609 \text{ km}} \times \frac{3.785 \text{ L}}{1 \text{ gallon}}\\
+&= \frac{100 \times 3.785}{1.609 \times \text{L/100km}} \times \frac{\text{ miles}}{\text{ gallon}} \\
+&\approx \frac{235.215}{\text{L/100km}} \text{ MPG}
+\end{aligned}
+$$
+
+**Example**
+
+```{r}
+#| label: example-economy
+
+economy_conversion_factor <- 100 *
+  3.785411784 / # liters in a gallon
+  (0.3048 * 5280 / 1000) # kilometers in a mile
+economy_conversion_factor
+
+qatarcars |>
+  mutate(economy_mpg = economy_conversion_factor / economy) |>
+  select(make, model, economy, economy_mpg)
+```
+
+
+## Performance (0--100 km/h ↔ 0--60 mph)
+
+**Conversion factors**
+
+- 0--60 mph (s) ≈ 0--100 km/h (s) × 0.9656064
+- 0--100 km/h (s) ≈ 0--60 mph (s) / 0.9656064
+
+::: {.callout-note}
+This conversion is only approximate because 100 km/h corresponds to about 62 mph, not exactly 60 mph, and cars may not accelerate at a constant rate. The estimate assumes constant acceleration (time proportional to target speed). Since 60 mph is reached before 100 km/h, the actual 0--60 time would be slightly faster than the scaled estimate.
+:::
+
+**Derivation**
+
+60 mph = $\frac{0.3048 \times 5280 \times 60}{1000}$ = 96.56064 km/h, so 60 mph is ≈96.56% of 100 km/h. Assuming constant acceleration, time scales proportionally to target speed, giving the conversion factor of 0.9656064.
+
+**Example**
+
+```{r}
+#| label: example-performance
+performance_conversion_factor <- 0.3048 * 5280 * 60 / 1000 / 100
+
+qatarcars |>
+  mutate(performance_mph = performance * performance_conversion_factor) |>
+  select(make, model, performance, performance_mph)
+```
+
+## Automatic conversion with {units}
+
+Alternatively, you can use [the {units} package](https://cran.r-project.org/package=units) to make these conversions:
+
+```{r}
+#| label: example-units
+library(units)
+
+qatarcars |>
+  mutate(
+    length_ft = set_units(length, "m") |> set_units("ft"),
+    mass_lbs = set_units(mass, "kg") |> set_units("lb"),
+    trunk_cuft = set_units(trunk, "L") |> set_units("ft^3"),
+    economy_mpg = set_units(1 / (economy / 100), "km/L") |> set_units("mi/gallon")
+  ) |>
+  select(make, model, length_ft, mass_lbs, trunk_cuft, economy_mpg)
+```
+
+::: {.callout-tip}
+
+{units} stores unit-specific metadata in the converted columns. Use `drop_units()` to convert these columns back to numeric values:
+
+```{.r}
+qatarcars |>
+  mutate(
+    length_ft = set_units(length, "m") |> set_units("ft") |> drop_units()
+  )
+```
+
+:::

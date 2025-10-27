@@ -34,8 +34,12 @@ Suggests:
     downlit,
     dplyr,
     ggplot2,
+    knitr,
+    quarto,
     scales,
     testthat (>= 3.0.0),
     tibble,
+    units,
     xml2
 Config/testthat/edition: 3
+VignetteBuilder: quarto

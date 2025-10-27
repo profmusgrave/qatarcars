@@ -8,3 +8,5 @@ _quarto/*
 docs/
 
 /.quarto/
+inst/doc
+**/.quarto/
