@@ -1,4 +1,4 @@
-# qatarcars (development version)
+# qatarcars 1.1.0
 
 - Made some minor corrections to the data based on reviewer feedback (dropped one BMW, reclassified eight cars, and added six new cars)
 - Fixed two typos in the data where values were accidentally across some cells
