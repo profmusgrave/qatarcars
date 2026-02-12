@@ -4,7 +4,7 @@
     "href": "CITATION.html",
     "title": "Citation",
     "section": "",
-    "text": "Citation\nTo cite qatarcars in publications, please use:\n\nMusgrave P (2025). “Defaulting to Inclusion: Producing Sample Datasets for the Global Data Science Classroom.” Journal of Political Science Education, 1-11. doi:10.1080/15512169.2025.2572320.\n\n\nMusgrave P, Heiss A (2025). {qatarcars}: Data on Cars in Qatar. R package version 1.1.0.9000, https://profmusgrave.github.io/qatarcars/.",
+    "text": "Citation\nTo cite qatarcars in publications, please use:\n\nMusgrave P (2025). “Defaulting to Inclusion: Producing Sample Datasets for the Global Data Science Classroom.” Journal of Political Science Education, 1-11. doi:10.1080/15512169.2025.2572320.\n\n\nMusgrave P, Heiss A (2026). {qatarcars}: Data on Cars in Qatar. R package version 1.1.0, https://profmusgrave.github.io/qatarcars/.",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "Citation"
@@ -37,9 +37,9 @@
   {
     "objectID": "NEWS.html",
     "href": "NEWS.html",
-    "title": "qatarcars (development version)",
+    "title": "qatarcars 1.1.0",
     "section": "",
-    "text": "qatarcars (development version)\n\nMade some minor corrections to the data based on reviewer feedback (dropped one BMW, reclassified eight cars, and added six new cars)\nFixed two typos in the data where values were accidentally across some cells\nUpdated canonical URL to original .dta file to https://qatarcars.georgetown.domains/qatarcars.dta\nAdded reference/citation information to DESCRIPTION and inst/CITATION\nFix badges in README\nAdded functions for converting from QAR to USD and EUR:\n\nFrom QAR: qar_to_usd() and qar_to_eur()\nFrom USD: usd_to_qar() and usd_to_eur()\nFrom EUR: eur_to_qar() and eur_to_usd()\n\nAdded documentation to the README on converting between SI and US customary units\nAdded Qatari maroon color as qatar_maroon\n\n\n\nqatarcars 1.0.0\n\nInitial CRAN submission.",
+    "text": "qatarcars 1.1.0\n\nMade some minor corrections to the data based on reviewer feedback (dropped one BMW, reclassified eight cars, and added six new cars)\nFixed two typos in the data where values were accidentally across some cells\nUpdated canonical URL to original .dta file to https://qatarcars.georgetown.domains/qatarcars.dta\nAdded reference/citation information to DESCRIPTION and inst/CITATION\nFix badges in README\nAdded functions for converting from QAR to USD and EUR:\n\nFrom QAR: qar_to_usd() and qar_to_eur()\nFrom USD: usd_to_qar() and usd_to_eur()\nFrom EUR: eur_to_qar() and eur_to_usd()\n\nAdded documentation to the README on converting between SI and US customary units\nAdded Qatari maroon color as qatar_maroon\n\n\n\nqatarcars 1.0.0\n\nInitial CRAN submission.",
     "crumbs": [
       "{{< fa file-lines >}} Article",
       "News"
