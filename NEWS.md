@@ -1,6 +1,7 @@
 # qatarcars (development version)
 
 - Made some minor corrections to the data based on reviewer feedback (dropped one BMW, reclassified eight cars, and added six new cars)
+- Fixed two typos in the data where values were accidentally across some cells
 - Updated canonical URL to original .dta file to <https://qatarcars.georgetown.domains/qatarcars.dta>
 - Added reference/citation information to DESCRIPTION and inst/CITATION
 - Fix badges in README
